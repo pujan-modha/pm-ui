@@ -1,4 +1,4 @@
-import { create } from "zustand"
+const { create } = require("zustand")
 
 type ThemeColorStore = {
   themeColor: string
