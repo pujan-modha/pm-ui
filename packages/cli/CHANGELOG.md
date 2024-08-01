@@ -1,5 +1,11 @@
 # @shadcn/ui
 
+## 0.0.2
+
+### Patch Changes
+
+- [`a742cfa1174be3412424ee35030fe13653f57578`](https://github.com/pujan-modha/pm-ui/commit/a742cfa1174be3412424ee35030fe13653f57578) Thanks [@pujan-modha](https://github.com/pujan-modha)! - update zod imports
+
 ## 0.8.0
 
 ### Minor Changes
