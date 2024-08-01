@@ -16,7 +16,7 @@ const buttonVariants = cva(
         destructive:
           "border-2 border-destructive bg-destructive/10 text-destructive hover:bg-destructive hover:text-primary",
         "destructive-filled":
-          "border-2 border-destructive bg-destructive text-primary hover:bg-destructive/10 hover:text-destructive",
+          "border-2 border-destructive bg-destructive text-foreground hover:bg-destructive/10 hover:text-destructive",
         secondary:
           "border-2 border-transparent bg-popover text-primary hover:border-primary",
         ghost: "border-2 border-transparent text-primary hover:bg-popover",
