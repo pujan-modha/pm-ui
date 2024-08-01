@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev -p 3003",
-    "build": "contentlayer2 build && npm run build:registry && next build",
+    "build": "contentlayer2 build && pnpm build:registry && next build",
     "build:registry": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-registry.mts && prettier --loglevel silent --write \"registry/**/*.{ts,tsx,mdx}\" --cache",
     "build:docs": "contentlayer2 build",
     "seed:tasks": "tsx --tsconfig ./tsconfig.scripts.json ./app/(app)/examples/tasks/data/seed.ts",
@@ -56,7 +56,6 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^1.2.1",
     "cmdk": "^0.2.0",
-    "concurrently": "^8.2.2",
     "contentlayer2": "^0.4.6",
     "date-fns": "^2.30.0",
     "embla-carousel-autoplay": "8.0.0-rc15",
@@ -68,7 +67,7 @@
     "lodash.template": "^4.5.0",
     "lucide-react": "0.359.0",
     "markdown-wasm": "^1.2.0",
-    "next": "^14.2.5",
+    "next": "14.3.0-canary.43",
     "next-contentlayer2": "^0.4.6",
     "next-themes": "^0.2.1",
     "react": "^18.2.0",
@@ -84,8 +83,7 @@
     "tailwind-merge": "^1.12.0",
     "ts-morph": "^22.0.0",
     "vaul": "0.9.0",
-    "zod": "^3.21.4",
-    "zustand": "^4.5.4"
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@shikijs/compat": "^1.1.7",
