@@ -17,6 +17,7 @@
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache"
   },
+  "packageManager": "pnpm@9.0.6",
   "dependencies": {
     "@faker-js/faker": "^8.2.0",
     "@hookform/resolvers": "^3.1.0",
