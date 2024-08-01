@@ -1,0 +1,68 @@
+---
+title: Switch
+description: A control that allows the user to toggle between checked and not checked.
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/switch
+  api: https://www.radix-ui.com/docs/primitives/components/switch#api-reference
+---
+
+<ComponentPreview name="switch-demo" description="A switch component." />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList className="w-min justify-start rounded-full border-2 bg-popover p-1">
+  <TabsTrigger
+    className="relative rounded-full bg-transparent px-4 py-1 font-semibold text-primary shadow-none transition-none data-[state=active]:text-background data-[state=active]:shadow-none !h-min"
+    value="cli">CLI</TabsTrigger>
+  <TabsTrigger
+    className="relative rounded-full bg-transparent px-4 py-1 font-semibold text-primary shadow-none transition-none data-[state=active]:text-background data-[state=active]:shadow-none !h-min"
+    value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx pm-ui@latest add switch
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-switch
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="switch" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { Switch } from "@/components/ui/switch"
+```
+
+```tsx
+<Switch />
+```
+
+## Examples
+
+### Form
+
+<ComponentPreview name="switch-form" />

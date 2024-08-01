@@ -1,0 +1,62 @@
+---
+title: Slider
+description: An input where the user selects a value from within a given range.
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/slider
+  api: https://www.radix-ui.com/docs/primitives/components/slider#api-reference
+---
+
+<ComponentPreview name="slider-demo" description="A slider component." />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList className="w-min justify-start rounded-full border-2 bg-popover p-1">
+  <TabsTrigger
+    className="relative rounded-full bg-transparent px-4 py-1 font-semibold text-primary shadow-none transition-none data-[state=active]:text-background data-[state=active]:shadow-none !h-min"
+    value="cli">CLI</TabsTrigger>
+  <TabsTrigger
+    className="relative rounded-full bg-transparent px-4 py-1 font-semibold text-primary shadow-none transition-none data-[state=active]:text-background data-[state=active]:shadow-none !h-min"
+    value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx pm-ui@latest add slider
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-slider
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="slider" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { Slider } from "@/components/ui/slider"
+```
+
+```tsx
+<Slider defaultValue={[33]} max={100} step={1} />
+```

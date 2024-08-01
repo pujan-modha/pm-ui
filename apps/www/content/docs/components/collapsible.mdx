@@ -1,0 +1,76 @@
+---
+title: Collapsible
+description: An interactive component which expands/collapses a panel.
+component: true
+featured: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/collapsible
+  api: https://www.radix-ui.com/docs/primitives/components/collapsible#api-reference
+---
+
+<ComponentPreview
+  name="collapsible-demo"
+  description="A collapsible component."
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList className="w-min justify-start rounded-full border-2 bg-popover p-1">
+  <TabsTrigger
+    className="relative rounded-full bg-transparent px-4 py-1 font-semibold text-primary shadow-none transition-none data-[state=active]:text-background data-[state=active]:shadow-none !h-min"
+    value="cli">CLI</TabsTrigger>
+  <TabsTrigger
+    className="relative rounded-full bg-transparent px-4 py-1 font-semibold text-primary shadow-none transition-none data-[state=active]:text-background data-[state=active]:shadow-none !h-min"
+    value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx pm-ui@latest add collapsible
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-collapsible
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="collapsible" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+```
+
+```tsx
+<Collapsible>
+  <CollapsibleTrigger>Can I use this in my project?</CollapsibleTrigger>
+  <CollapsibleContent>
+    Yes. Free to use for personal and commercial projects. No attribution
+    required.
+  </CollapsibleContent>
+</Collapsible>
+```

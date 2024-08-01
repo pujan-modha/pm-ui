@@ -1,0 +1,68 @@
+---
+title: Aspect Ratio
+description: Displays content within a desired ratio.
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/aspect-ratio
+  api: https://www.radix-ui.com/docs/primitives/components/aspect-ratio#api-reference
+---
+
+<ComponentPreview name="aspect-ratio-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList className="w-min justify-start rounded-full border-2 bg-popover p-1">
+  <TabsTrigger
+    className="relative rounded-full bg-transparent px-4 py-1 font-semibold text-primary shadow-none transition-none data-[state=active]:text-background data-[state=active]:shadow-none !h-min"
+    value="cli">CLI</TabsTrigger>
+  <TabsTrigger
+    className="relative rounded-full bg-transparent px-4 py-1 font-semibold text-primary shadow-none transition-none data-[state=active]:text-background data-[state=active]:shadow-none !h-min"
+    value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx pm-ui@latest add aspect-ratio
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-aspect-ratio
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="aspect-ratio" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import Image from "next/image"
+
+import { AspectRatio } from "@/components/ui/aspect-ratio"
+```
+
+```tsx
+<div className="w-[450px]">
+  <AspectRatio ratio={16 / 9}>
+    <Image src="..." alt="Image" className="rounded-md object-cover" />
+  </AspectRatio>
+</div>
+```
