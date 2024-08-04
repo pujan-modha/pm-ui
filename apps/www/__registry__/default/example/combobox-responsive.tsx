@@ -97,7 +97,7 @@ function StatusList({
   setSelectedStatus: (status: Status | null) => void
 }) {
   return (
-    <Command>
+    <Command className="!border-0">
       <CommandInput placeholder="Filter status..." />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>

@@ -19,6 +19,22 @@
     --chart-7: 31 100% 71%;
   }
 
+  .drac-pro-light {
+    --primary: 254 12% 6%;
+    --popover: 240 2% 90%;
+    --background: 254 12% 100%;
+    --foreground: 254 12% 100%;
+    --destructive: 10 92% 66%;
+    --radius: 1rem;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+
   .drac-pro-white {
     --primary: 254 12% 100%;
     --popover: 260 4% 15%;

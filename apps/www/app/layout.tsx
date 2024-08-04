@@ -91,18 +91,18 @@ export default function RootLayout({ children }: RootLayoutProps) {
             themeColor
           )}
         >
-          <ThemeProvider attribute="class" defaultTheme="dark">
-            <div vaul-drawer-wrapper="">
-              <div className="relative flex min-h-screen flex-col bg-background">
-                {children}
-              </div>
+          {/* <ThemeProvider attribute="class" defaultTheme="dark"> */}
+          <div vaul-drawer-wrapper="">
+            <div className="relative flex min-h-screen flex-col bg-background">
+              {children}
             </div>
-            <TailwindIndicator />
-            <ThemeSwitcher />
-            <Toaster />
-            <DefaultToaster />
-            <Sonner />
-          </ThemeProvider>
+          </div>
+          {/* <TailwindIndicator /> */}
+          {/* <ThemeSwitcher /> */}
+          <Toaster />
+          <DefaultToaster />
+          <Sonner />
+          {/* </ThemeProvider> */}
         </body>
       </html>
     </>

@@ -48,7 +48,7 @@ export default function DashboardPage() {
         />
       </div>
       <div className="hidden flex-col md:flex">
-        <div className="border-b">
+        <div className="border-b-2">
           <div className="flex h-16 items-center px-4">
             <TeamSwitcher />
             <MainNav className="mx-6" />

@@ -21,6 +21,7 @@ const ThemeColorSwitcher = () => {
       .filter(
         (cls) =>
           ![
+            "drac-pro-light",
             "drac-pro-white",
             "drac-pro-cyan",
             "drac-pro-green",
@@ -63,6 +64,7 @@ const ThemeColorSwitcher = () => {
               "drac-pro-purple",
               "drac-pro-red",
               "drac-pro-yellow",
+              "drac-pro-light",
             ].map((color) => (
               <Button
                 key={color}

@@ -67,7 +67,7 @@ export default function PlaygroundPage() {
             <PresetActions />
           </div>
         </div>
-        <Separator />
+        <Separator className="h-[2px]" />
         <Tabs defaultValue="complete" className="flex-1">
           <div className="container h-full py-6">
             <div className="grid h-full items-stretch gap-6 md:grid-cols-[1fr_200px]">
@@ -277,7 +277,7 @@ export default function PlaygroundPage() {
                         placeholder="We're writing to [inset]. Congrats from OpenAI!"
                         className="h-full min-h-[300px] lg:min-h-[700px] xl:min-h-[700px]"
                       />
-                      <div className="rounded-md border bg-muted"></div>
+                      <div className="rounded-2xl border-2"></div>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Button>Submit</Button>
@@ -308,7 +308,7 @@ export default function PlaygroundPage() {
                           />
                         </div>
                       </div>
-                      <div className="mt-[21px] min-h-[400px] rounded-md border bg-muted lg:min-h-[700px]" />
+                      <div className="mt-[21px] min-h-[400px] rounded-2xl border-2 lg:min-h-[700px]" />
                     </div>
                     <div className="flex items-center space-x-2">
                       <Button>Submit</Button>

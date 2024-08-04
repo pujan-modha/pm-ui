@@ -24,7 +24,9 @@ export function MainNav() {
           href="/docs"
           className={cn(
             "transition-colors hover:text-primary",
-            pathname === "/docs" ? "text-primary" : "text-primary/60"
+            pathname === "/docs"
+              ? "font-medium underline underline-offset-2"
+              : "text-primary"
           )}
         >
           Docs
@@ -35,8 +37,8 @@ export function MainNav() {
             "transition-colors hover:text-primary",
             pathname?.startsWith("/docs/components") &&
               !pathname?.startsWith("/docs/component/chart")
-              ? "text-primary"
-              : "text-primary/60"
+              ? "font-medium underline underline-offset-2"
+              : "text-primary"
           )}
         >
           Components
@@ -47,8 +49,8 @@ export function MainNav() {
             "transition-colors hover:text-primary",
             pathname?.startsWith("/docs/component/chart") ||
               pathname?.startsWith("/charts")
-              ? "text-primary"
-              : "text-primary/60"
+              ? "font-medium underline underline-offset-2"
+              : "text-primary"
           )}
         >
           Charts
@@ -57,7 +59,9 @@ export function MainNav() {
           href="/docs/theming"
           className={cn(
             "transition-colors hover:text-primary",
-            pathname?.startsWith("/themes") ? "text-primary" : "text-primary/60"
+            pathname?.startsWith("/themes")
+              ? "font-medium underline underline-offset-2"
+              : "text-primary"
           )}
         >
           Themes
@@ -67,8 +71,8 @@ export function MainNav() {
           className={cn(
             "transition-colors hover:text-primary",
             pathname?.startsWith("/examples")
-              ? "text-primary"
-              : "text-primary/60"
+              ? "font-medium underline underline-offset-2"
+              : "text-primary"
           )}
         >
           Examples
@@ -77,7 +81,9 @@ export function MainNav() {
           href="/colors"
           className={cn(
             "transition-colors hover:text-primary",
-            pathname?.startsWith("/colors") ? "text-primary" : "text-primary/60"
+            pathname?.startsWith("/colors")
+              ? "font-medium underline underline-offset-2"
+              : "text-primary"
           )}
         >
           Colors
