@@ -11,7 +11,12 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/registry/default/ui/button"
 import { ScrollArea } from "@/registry/default/ui/scroll-area"
 import { Separator } from "@/registry/default/ui/separator"
-import { Sheet, SheetContent, SheetTrigger } from "@/registry/default/ui/sheet"
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/registry/default/ui/sheet"
 import { Icons } from "@/components/icons"
 
 export function MobileNav() {
@@ -57,9 +62,10 @@ export function MobileNav() {
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="pr-0">
+        <SheetTitle />
         <MobileLink
           href="/"
-          className="ml-6 flex w-min flex-col"
+          className="flex w-min flex-col pl-4"
           onOpenChange={setOpen}
         >
           <div>
@@ -72,14 +78,14 @@ export function MobileNav() {
             >
               <path
                 d="M125.695 57.857 87.297 96.258l36.223 36.223 36.224 36.222 38.527-38.527 38.527-38.527-36.094-36.097c-19.851-19.853-36.21-36.096-36.352-36.096s-17.538 17.28-38.657 38.401m9.216 9.216L105.73 96.258l27.007 27.007 27.007 27.006 29.311-29.311 29.31-29.311-26.877-26.881c-14.782-14.783-26.993-26.88-27.136-26.88s-13.391 13.133-29.441 29.185M48.762 134.79l-29.315 29.318 4.617 4.596 4.617 4.596 29.179-29.176c16.049-16.047 29.18-29.413 29.18-29.702 0-.509-8.22-8.95-8.716-8.95-.136 0-13.439 13.193-29.562 29.318m31.692 31.284c-25.593 25.596-29.298 29.493-28.842 30.335.287.531 2.287 2.679 4.442 4.772l3.919 3.805 29.532-29.531 29.532-29.532-4.609-4.609-4.609-4.609zm31.419 32.069-29.18 29.183 4.608 4.608 4.608 4.608 29.431-29.434 29.431-29.434-4.335-4.357c-2.383-2.396-4.57-4.357-4.859-4.357s-13.656 13.132-29.705 29.183"
-                fill-rule="evenodd"
+                fillRule="evenodd"
               />
             </svg>
           </div>
           <Separator className="h-[1.5px]" />
           <span className="font-bold">{siteConfig.name}</span>
         </MobileLink>
-        <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
+        <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-4">
           <div className="flex flex-col space-y-3">
             {docsConfig.mainNav?.map(
               (item) =>
@@ -110,7 +116,7 @@ export function MobileNav() {
                           >
                             {item.title}
                             {item.label && (
-                              <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
+                              <span className="ml-2 rounded-md bg-primary px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
                                 {item.label}
                               </span>
                             )}
