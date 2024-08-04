@@ -13,7 +13,7 @@ import { Label } from "@/registry/default/ui/label"
 
 export function PodcastEmptyPlaceholder() {
   return (
-    <div className="flex h-[450px] shrink-0 items-center justify-center rounded-md border border-dashed">
+    <div className="flex h-[450px] shrink-0 items-center justify-center rounded-2xl border border-dashed">
       <div className="mx-auto flex max-w-[420px] flex-col items-center justify-center text-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"

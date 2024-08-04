@@ -34,7 +34,7 @@ export default function AuthenticationPage() {
         <Link
           href="/examples/authentication"
           className={cn(
-            buttonVariants({ variant: "ghost" }),
+            buttonVariants({ variant: "default" }),
             "absolute right-4 top-4 md:right-8 md:top-8"
           )}
         >

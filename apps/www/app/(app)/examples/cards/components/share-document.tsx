@@ -35,7 +35,7 @@ export function DemoShareDocument() {
       <CardContent>
         <div className="flex space-x-2">
           <Input value="http://example.com/link/to/document" readOnly />
-          <Button variant="secondary" className="shrink-0">
+          <Button variant="filled" className="shrink-0">
             Copy Link
           </Button>
         </div>

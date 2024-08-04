@@ -42,7 +42,7 @@ export function AlbumArtwork({
               width={width}
               height={height}
               className={cn(
-                "h-auto w-auto object-cover transition-all hover:scale-105",
+                "h-auto w-auto object-cover transition-all duration-500 hover:scale-105",
                 aspectRatio === "portrait" ? "aspect-[3/4]" : "aspect-square"
               )}
             />
@@ -52,7 +52,7 @@ export function AlbumArtwork({
           <ContextMenuItem>Add to Library</ContextMenuItem>
           <ContextMenuSub>
             <ContextMenuSubTrigger>Add to Playlist</ContextMenuSubTrigger>
-            <ContextMenuSubContent className="w-48">
+            <ContextMenuSubContent className="ml-1 w-48">
               <ContextMenuItem>
                 <PlusCircledIcon className="mr-2 h-4 w-4" />
                 New Playlist

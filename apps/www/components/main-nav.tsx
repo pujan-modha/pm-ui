@@ -14,7 +14,7 @@ export function MainNav() {
   return (
     <div className="mr-4 hidden md:flex">
       <Link href="/" className="mr-4 flex items-center space-x-2 lg:mr-6">
-        {/* <Image src="/favicon-32x32.png" width={32} height={32} alt="Logo" /> */}
+        <Icons.logo className="h-6 w-6" />
         <span className="hidden font-bold text-primary lg:inline-block">
           {siteConfig.name}
         </span>

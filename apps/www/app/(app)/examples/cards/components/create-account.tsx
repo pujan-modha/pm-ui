@@ -24,11 +24,11 @@ export function DemoCreateAccount() {
       </CardHeader>
       <CardContent className="grid gap-4">
         <div className="grid grid-cols-2 gap-6">
-          <Button variant="default">
+          <Button variant="filled">
             <Icons.gitHub className="mr-2 h-4 w-4" />
             Github
           </Button>
-          <Button variant="default">
+          <Button variant="filled">
             <Icons.google className="mr-2 h-4 w-4" />
             Google
           </Button>
