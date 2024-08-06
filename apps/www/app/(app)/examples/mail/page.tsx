@@ -15,18 +15,11 @@ export default function MailPage() {
     <>
       <div className="md:hidden">
         <Image
-          src="/examples/mail-dark.png"
-          width={1280}
-          height={727}
+          src="/examples/mail.png"
+          width={1368}
+          height={802}
           alt="Mail"
-          className="hidden dark:block"
-        />
-        <Image
-          src="/examples/mail-light.png"
-          width={1280}
-          height={727}
-          alt="Mail"
-          className="block dark:hidden"
+          className="block"
         />
       </div>
       <div className="hidden flex-col md:flex">

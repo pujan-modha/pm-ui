@@ -33,18 +33,11 @@ export default function DashboardPage() {
     <>
       <div className="md:hidden">
         <Image
-          src="/examples/dashboard-light.png"
-          width={1280}
-          height={866}
+          src="/examples/dashboard.png"
+          width={1368}
+          height={844}
           alt="Dashboard"
-          className="block dark:hidden"
-        />
-        <Image
-          src="/examples/dashboard-dark.png"
-          width={1280}
-          height={866}
-          alt="Dashboard"
-          className="hidden dark:block"
+          className="block"
         />
       </div>
       <div className="hidden flex-col md:flex">

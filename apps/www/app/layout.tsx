@@ -5,10 +5,7 @@ import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { Toaster as Sonner } from "@/registry/default/ui/sonner"
-import {
-  Toaster as DefaultToaster,
-  Toaster,
-} from "@/registry/default/ui/toaster"
+import { Toaster as DefaultToaster } from "@/registry/default/ui/toaster"
 import { ThemeProvider } from "@/components/providers"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { useThemeColorStore } from "@/components/theme-color"
@@ -99,7 +96,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           </div>
           {/* <TailwindIndicator /> */}
           {/* <ThemeSwitcher /> */}
-          <Toaster />
+          {/* <Toaster /> */}
           <DefaultToaster />
           <Sonner />
           {/* </ThemeProvider> */}
