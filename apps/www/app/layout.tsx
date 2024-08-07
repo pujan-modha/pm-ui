@@ -83,23 +83,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <>
       <html lang="en" suppressHydrationWarning>
         <head>
-          {/* <Script
-            id="theme-script"
-            dangerouslySetInnerHTML={{
-              __html: `
-          (function() {
-            try {
-              var savedTheme = localStorage.getItem('themeColor');
-              if (savedTheme) {
-                document.documentElement.classList.add(savedTheme);
-              } else {
-                document.documentElement.classList.add('drac-pro-cyan');
-              }
-            } catch (e) {}
-          })();
-        `,
-            }}
-          /> */}
+          <script dangerouslySetInnerHTML={{ __html: themeScript }} />
           <Script id="theme-script" strategy="afterInteractive">
             {themeScript}
           </Script>
@@ -111,18 +95,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
             themeColor
           )}
         >
-          {/* <ThemeProvider attribute="class" defaultTheme="dark"> */}
           <div vaul-drawer-wrapper="">
             <div className="relative flex min-h-screen flex-col bg-background">
               {children}
             </div>
           </div>
-          {/* <TailwindIndicator /> */}
-          {/* <ThemeSwitcher /> */}
-          {/* <Toaster /> */}
           <DefaultToaster />
           <Sonner />
-          {/* </ThemeProvider> */}
         </body>
       </html>
     </>
