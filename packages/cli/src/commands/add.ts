@@ -1,13 +1,11 @@
 import { existsSync, promises as fs } from "fs"
 import path from "path"
-import { getConfig } from "@/src/utils/get-config"
+import { Config, getConfig } from "@/src/utils/get-config"
 import { getPackageManager } from "@/src/utils/get-package-manager"
 import { handleError } from "@/src/utils/handle-error"
 import { logger } from "@/src/utils/logger"
 import {
   fetchTree,
-  getItemTargetPath,
-  getRegistryBaseColor,
   getRegistryIndex,
   resolveTree,
 } from "@/src/utils/registry"
@@ -18,6 +16,7 @@ import { execa } from "execa"
 import ora from "ora"
 import prompts from "prompts"
 import { z } from "zod"
+import { registryItemWithContentSchema } from "../utils/registry/schema"
 
 const addOptionsSchema = z.object({
   components: z.array(z.string()).optional(),
@@ -95,7 +94,6 @@ export const add = new Command()
 
       const tree = await resolveTree(registryIndex, selectedComponents)
       const payload = await fetchTree(config.style, tree)
-      const baseColor = await getRegistryBaseColor(config.tailwind.baseColor)
 
       if (!payload.length) {
         logger.warn("Selected components not found. Exiting.")
@@ -164,12 +162,14 @@ export const add = new Command()
         for (const file of item.files) {
           let filePath = path.resolve(targetDir, file.name)
 
+          // Ensure the directory exists
+          await fs.mkdir(path.dirname(filePath), { recursive: true })
+
           // Run transformers.
           const content = await transform({
             filename: file.name,
             raw: file.content,
             config,
-            baseColor,
           })
 
           if (!config.tsx) {
@@ -216,3 +216,27 @@ export const add = new Command()
       handleError(error)
     }
   })
+
+export async function getItemTargetPath(
+  config: Config,
+  item: Pick<z.infer<typeof registryItemWithContentSchema>, "type">,
+  override?: string
+) {
+  if (override) {
+    return path.resolve(config.resolvedPaths.components, override)
+  }
+
+  if (item.type === "components:ui" && config.resolvedPaths.ui) {
+    return config.resolvedPaths.ui
+  }
+
+  const [parent, type] = item.type.split(":")
+  if (!(parent in config.resolvedPaths)) {
+    return null
+  }
+
+  return path.join(
+    config.resolvedPaths[parent as keyof typeof config.resolvedPaths],
+    type
+  )
+}

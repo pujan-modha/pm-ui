@@ -2,7 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import { config } from "process";
 import { Config } from "@/src/utils/get-config";
-import { registryBaseColorSchema, registryIndexSchema, registryItemWithContentSchema, registryWithContentSchema, stylesSchema } from "@/src/utils/registry/schema";
+import { registryIndexSchema, registryItemWithContentSchema, registryWithContentSchema, stylesSchema } from "@/src/utils/registry/schema";
 import { HttpsProxyAgent } from "https-proxy-agent";
 import fetch from "node-fetch";
 import { z } from "zod";
@@ -36,30 +36,6 @@ export async function getRegistryStyles() {
   }
 }
 
-export async function getRegistryBaseColors() {
-  return [
-    {
-      name: "slate",
-      label: "Slate",
-    },
-    {
-      name: "gray",
-      label: "Gray",
-    },
-    {
-      name: "zinc",
-      label: "Zinc",
-    },
-    {
-      name: "neutral",
-      label: "Neutral",
-    },
-    {
-      name: "stone",
-      label: "Stone",
-    },
-  ]
-}
 export async function getRegistryBaseColor(config: Config) {
   try {
     const templateUrl = `${baseUrl}/registry/template.css`
@@ -70,6 +46,7 @@ export async function getRegistryBaseColor(config: Config) {
       throw new Error(`Failed to fetch template: ${response.statusText}`)
     }
     const templateContent = await response.text()
+    const tailwindCssPath = config.resolvedPaths.tailwindCss
 
     // Write the template content to the global.css file
     await fs.writeFile(
@@ -136,7 +113,7 @@ export async function getItemTargetPath(
     return override
   }
 
-  if (item.type === "components:ui" && config.aliases.ui) {
+  if (item.type === "components:ui" && config.aliases?.ui) {
     return config.resolvedPaths.ui
   }
 
@@ -145,10 +122,14 @@ export async function getItemTargetPath(
     return null
   }
 
-  return path.join(
-    config.resolvedPaths[parent as keyof typeof config.resolvedPaths],
-    type
-  )
+  const basePath =
+    config.resolvedPaths[parent as keyof typeof config.resolvedPaths]
+
+  // Use the project structure information from the config
+  const projectRoot = path.dirname(config.resolvedPaths.tailwindConfig)
+  const relativePath = path.relative(projectRoot, basePath)
+
+  return path.join(projectRoot, relativePath, type)
 }
 
 async function fetchRegistry(paths: string[]) {

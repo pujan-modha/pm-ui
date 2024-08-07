@@ -3,7 +3,6 @@
   "tailwind": {
     "config": "./tailwind.config.ts",
     "css": "./src/assets/css/tailwind.css",
-    "baseColor": "neutral",
     "cssVariables": false
   },
   "aliases": {
