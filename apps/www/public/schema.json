@@ -15,9 +15,6 @@
         "css": {
           "type": "string"
         },
-        "baseColor": {
-          "type": "string"
-        },
         "cssVariables": {
           "type": "boolean"
         },
@@ -25,7 +22,7 @@
           "type": "string"
         }
       },
-      "required": ["config", "css", "baseColor", "cssVariables"]
+      "required": ["config", "css", "cssVariables"]
     },
     "rsc": {
       "type": "boolean"
