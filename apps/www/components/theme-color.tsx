@@ -8,16 +8,14 @@ type ThemeColorStore = {
 export const useThemeColor = create<ThemeColorStore>((set) => ({
   themeColor:
     typeof window !== "undefined"
-      ? localStorage.getItem("themeColor") || "drac-pro-cyan"
-      : "drac-pro-cyan",
+      ? localStorage.getItem("themeColor") || "theme-poimandres"
+      : "theme-poimandres",
   setThemeColor: (color: string) => {
     if (typeof window !== "undefined") {
       localStorage.setItem("themeColor", color)
       document.documentElement.classList.forEach((cls) => {
         if (
-          cls.startsWith("drac-") ||
-          cls.startsWith("nord-") ||
-          cls.startsWith("catppuccin-")
+          cls.startsWith("theme-")
         ) {
           document.documentElement.classList.remove(cls)
         }
@@ -32,9 +30,7 @@ export const useThemeColor = create<ThemeColorStore>((set) => ({
 if (typeof window !== "undefined") {
   const appliedTheme = Array.from(document.documentElement.classList).find(
     (cls) =>
-      cls.startsWith("drac-") ||
-      cls.startsWith("nord-") ||
-      cls.startsWith("catppuccin-")
+      cls.startsWith("theme-")
   )
   if (appliedTheme) {
     useThemeColor.getState().setThemeColor(appliedTheme)

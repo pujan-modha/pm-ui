@@ -55,6 +55,7 @@
     "eslint-config-turbo": "^1.13.4",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-tailwindcss": "3.13.1",
+    "pm-ui": "^0.0.2",
     "postcss": "^8.4.40",
     "prettier": "^2.8.8",
     "pretty-quick": "^3.3.1",

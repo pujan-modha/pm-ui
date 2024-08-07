@@ -3,15 +3,12 @@ import { Metadata, Viewport } from "next"
 import Script from "next/script"
 
 import { siteConfig } from "@/config/site"
-import { fontSans } from "@/lib/fonts"
+import { fontMono, fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { themeScript } from "@/hooks/theme-script"
 import { Toaster as Sonner } from "@/registry/default/ui/sonner"
 import { Toaster as DefaultToaster } from "@/registry/default/ui/toaster"
-import { ThemeProvider } from "@/components/providers"
-import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { useThemeColor } from "@/components/theme-color"
-import { ThemeSwitcher } from "@/components/theme-switcher"
 
 export const metadata: Metadata = {
   title: {
@@ -26,6 +23,15 @@ export const metadata: Metadata = {
     "Tailwind CSS",
     "Server Components",
     "Radix UI",
+    "Pujan Modha",
+    "Pujan",
+    "pm-ui",
+    "pmui",
+    "pm/ui",
+    "shadcnui",
+    "shadcn",
+    "shadcn-ui",
+    "shadcn/ui",
   ],
   authors: [
     {
@@ -92,6 +98,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
             fontSans.variable,
+            fontMono.variable,
             themeColor
           )}
         >

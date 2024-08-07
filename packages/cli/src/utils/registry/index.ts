@@ -1,15 +1,15 @@
-import path from "path"
-import { Config } from "@/src/utils/get-config"
-import {
-  registryBaseColorSchema,
-  registryIndexSchema,
-  registryItemWithContentSchema,
-  registryWithContentSchema,
-  stylesSchema,
-} from "@/src/utils/registry/schema"
-import { HttpsProxyAgent } from "https-proxy-agent"
-import fetch from "node-fetch"
-import { z } from "zod"
+import fs from "fs/promises";
+import path from "path";
+import { config } from "process";
+import { Config } from "@/src/utils/get-config";
+import { registryBaseColorSchema, registryIndexSchema, registryItemWithContentSchema, registryWithContentSchema, stylesSchema } from "@/src/utils/registry/schema";
+import { HttpsProxyAgent } from "https-proxy-agent";
+import fetch from "node-fetch";
+import { z } from "zod";
+
+
+
+
 
 const baseUrl = process.env.COMPONENTS_REGISTRY_URL ?? "https://ui.pujan.pm"
 const agent = process.env.https_proxy
@@ -60,14 +60,29 @@ export async function getRegistryBaseColors() {
     },
   ]
 }
-
-export async function getRegistryBaseColor(baseColor: string) {
+export async function getRegistryBaseColor(config: Config) {
   try {
-    const [result] = await fetchRegistry([`colors/${baseColor}.json`])
+    const templateUrl = `${baseUrl}/registry/themes.css`
 
-    return registryBaseColorSchema.parse(result)
+    // Fetch the template from the server
+    const response = await fetch(templateUrl, { agent })
+    if (!response.ok) {
+      throw new Error(`Failed to fetch template: ${response.statusText}`)
+    }
+    const templateContent = await response.text()
+
+    // Write the template content to the global.css file
+    await fs.writeFile(
+      config.resolvedPaths.tailwindCss,
+      templateContent,
+      "utf8"
+    )
+
+    console.log("Successfully wrote global.css from server template")
+    return templateContent
   } catch (error) {
-    throw new Error(`Failed to fetch base color from registry.`)
+    console.error("Error fetching or writing global.css:", error)
+    throw new Error(`Failed to fetch or write global.css template.`)
   }
 }
 

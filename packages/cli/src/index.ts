@@ -13,7 +13,7 @@ async function main() {
   const packageInfo = await getPackageInfo()
 
   const program = new Command()
-    .name("pm-ui")
+    .name("@pujan-modha/pm-ui")
     .description("add components and dependencies to your project")
     .version(
       packageInfo.version || "0.0.1",

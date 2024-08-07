@@ -1,34 +1,24 @@
-import { existsSync, promises as fs } from "fs"
-import path from "path"
-import {
-  DEFAULT_COMPONENTS,
-  DEFAULT_TAILWIND_CONFIG,
-  DEFAULT_TAILWIND_CSS,
-  DEFAULT_UTILS,
-  getConfig,
-  rawConfigSchema,
-  resolveConfigPaths,
-  type Config,
-} from "@/src/utils/get-config"
-import { getPackageManager } from "@/src/utils/get-package-manager"
-import { getProjectConfig, preFlight } from "@/src/utils/get-project-info"
-import { handleError } from "@/src/utils/handle-error"
-import { logger } from "@/src/utils/logger"
-import {
-  getRegistryBaseColor,
-  getRegistryBaseColors,
-  getRegistryStyles,
-} from "@/src/utils/registry"
-import * as templates from "@/src/utils/templates"
-import chalk from "chalk"
-import { Command } from "commander"
-import { execa } from "execa"
-import template from "lodash.template"
-import ora from "ora"
-import prompts from "prompts"
-import { z } from "zod"
+import { existsSync, promises as fs } from "fs";
+import path from "path";
+import { DEFAULT_COMPONENTS, DEFAULT_TAILWIND_CONFIG, DEFAULT_TAILWIND_CSS, DEFAULT_UTILS, getConfig, rawConfigSchema, resolveConfigPaths, type Config } from "@/src/utils/get-config";
+import { getPackageManager } from "@/src/utils/get-package-manager";
+import { getProjectConfig, preFlight } from "@/src/utils/get-project-info";
+import { handleError } from "@/src/utils/handle-error";
+import { logger } from "@/src/utils/logger";
+import { getRegistryBaseColor, getRegistryBaseColors, getRegistryStyles } from "@/src/utils/registry";
+import * as templates from "@/src/utils/templates";
+import chalk from "chalk";
+import { Command } from "commander";
+import { execa } from "execa";
+import template from "lodash.template";
+import ora from "ora";
+import prompts from "prompts";
+import { z } from "zod";
 
-import { applyPrefixesCss } from "../utils/transformers/transform-tw-prefix"
+
+
+import { applyPrefixesCss } from "../utils/transformers/transform-tw-prefix";
+
 
 const PROJECT_DEPENDENCIES = [
   "tailwindcss-animate",
@@ -100,9 +90,6 @@ export async function promptForConfig(
 ) {
   const highlight = (text: string) => chalk.cyan(text)
 
-  const styles = await getRegistryStyles()
-  const baseColors = await getRegistryBaseColors()
-
   const options = await prompts([
     {
       type: "toggle",
@@ -115,48 +102,10 @@ export async function promptForConfig(
       inactive: "no",
     },
     {
-      type: "select",
-      name: "style",
-      message: `Which ${highlight("style")} would you like to use?`,
-      choices: styles.map((style) => ({
-        title: style.label,
-        value: style.name,
-      })),
-    },
-    {
-      type: "select",
-      name: "tailwindBaseColor",
-      message: `Which color would you like to use as ${highlight(
-        "base color"
-      )}?`,
-      choices: baseColors.map((color) => ({
-        title: color.label,
-        value: color.name,
-      })),
-    },
-    {
       type: "text",
       name: "tailwindCss",
       message: `Where is your ${highlight("global CSS")} file?`,
       initial: defaultConfig?.tailwind.css ?? DEFAULT_TAILWIND_CSS,
-    },
-    {
-      type: "toggle",
-      name: "tailwindCssVariables",
-      message: `Would you like to use ${highlight(
-        "CSS variables"
-      )} for colors?`,
-      initial: defaultConfig?.tailwind.cssVariables ?? true,
-      active: "yes",
-      inactive: "no",
-    },
-    {
-      type: "text",
-      name: "tailwindPrefix",
-      message: `Are you using a custom ${highlight(
-        "tailwind prefix eg. tw-"
-      )}? (Leave blank if not)`,
-      initial: "",
     },
     {
       type: "text",
@@ -188,13 +137,13 @@ export async function promptForConfig(
 
   const config = rawConfigSchema.parse({
     $schema: "https://ui.pujan.pm/schema.json",
-    style: options.style,
+    style: "default",
     tailwind: {
       config: options.tailwindConfig,
       css: options.tailwindCss,
-      baseColor: options.tailwindBaseColor,
-      cssVariables: options.tailwindCssVariables,
-      prefix: options.tailwindPrefix,
+      baseColor: "slate",
+      cssVariables: true,
+      prefix: "",
     },
     rsc: options.rsc,
     tsx: options.typescript,
@@ -234,60 +183,13 @@ export async function promptForMinimalConfig(
   defaultConfig: Config,
   defaults = false
 ) {
-  const highlight = (text: string) => chalk.cyan(text)
-  let style = defaultConfig.style
-  let baseColor = defaultConfig.tailwind.baseColor
-  let cssVariables = defaultConfig.tailwind.cssVariables
-
-  if (!defaults) {
-    const styles = await getRegistryStyles()
-    const baseColors = await getRegistryBaseColors()
-
-    const options = await prompts([
-      {
-        type: "select",
-        name: "style",
-        message: `Which ${highlight("style")} would you like to use?`,
-        choices: styles.map((style) => ({
-          title: style.label,
-          value: style.name,
-        })),
-      },
-      {
-        type: "select",
-        name: "tailwindBaseColor",
-        message: `Which color would you like to use as ${highlight(
-          "base color"
-        )}?`,
-        choices: baseColors.map((color) => ({
-          title: color.label,
-          value: color.name,
-        })),
-      },
-      {
-        type: "toggle",
-        name: "tailwindCssVariables",
-        message: `Would you like to use ${highlight(
-          "CSS variables"
-        )} for colors?`,
-        initial: defaultConfig?.tailwind.cssVariables,
-        active: "yes",
-        inactive: "no",
-      },
-    ])
-
-    style = options.style
-    baseColor = options.tailwindBaseColor
-    cssVariables = options.tailwindCssVariables
-  }
-
   const config = rawConfigSchema.parse({
     $schema: defaultConfig?.$schema,
-    style,
+    style: "default",
     tailwind: {
       ...defaultConfig?.tailwind,
-      baseColor,
-      cssVariables,
+      baseColor: "slate",
+      cssVariables: true,
     },
     rsc: defaultConfig?.rsc,
     tsx: defaultConfig?.tsx,
@@ -336,13 +238,9 @@ export async function runInit(cwd: string, config: Config) {
 
   let tailwindConfigTemplate: string
   if (tailwindConfigExtension === ".ts") {
-    tailwindConfigTemplate = config.tailwind.cssVariables
-      ? templates.TAILWIND_CONFIG_TS_WITH_VARIABLES
-      : templates.TAILWIND_CONFIG_TS
+    tailwindConfigTemplate = templates.TAILWIND_CONFIG_TS_WITH_VARIABLES
   } else {
-    tailwindConfigTemplate = config.tailwind.cssVariables
-      ? templates.TAILWIND_CONFIG_WITH_VARIABLES
-      : templates.TAILWIND_CONFIG
+    tailwindConfigTemplate = templates.TAILWIND_CONFIG_WITH_VARIABLES
   }
 
   // Write tailwind config.
@@ -356,18 +254,21 @@ export async function runInit(cwd: string, config: Config) {
   )
 
   // Write css file.
-  const baseColor = await getRegistryBaseColor(config.tailwind.baseColor)
-  if (baseColor) {
-    await fs.writeFile(
-      config.resolvedPaths.tailwindCss,
-      config.tailwind.cssVariables
-        ? config.tailwind.prefix
-          ? applyPrefixesCss(baseColor.cssVarsTemplate, config.tailwind.prefix)
-          : baseColor.cssVarsTemplate
-        : baseColor.inlineColorsTemplate,
-      "utf8"
-    )
-  }
+  // const baseColor = await getRegistryBaseColor(config.tailwind.baseColor)
+  // if (baseColor) {
+  //   await fs.writeFile(
+  //     config.resolvedPaths.tailwindCss,
+  //     config.tailwind.cssVariables
+  //       ? config.tailwind.prefix
+  //         ? applyPrefixesCss(baseColor.cssVarsTemplate, config.tailwind.prefix)
+  //         : baseColor.cssVarsTemplate
+  //       : baseColor.inlineColorsTemplate,
+  //     "utf8"
+  //   )
+  // }
+
+  // Write css file but with my themes.
+  await getRegistryBaseColor(config)
 
   // Write cn file.
   await fs.writeFile(
@@ -383,10 +284,7 @@ export async function runInit(cwd: string, config: Config) {
   const packageManager = await getPackageManager(cwd)
 
   // TODO: add support for other icon libraries.
-  const deps = [
-    ...PROJECT_DEPENDENCIES,
-    config.style === "new-york" ? "@radix-ui/react-icons" : "lucide-react",
-  ]
+  const deps = [...PROJECT_DEPENDENCIES, "lucide-react"]
 
   await execa(
     packageManager,

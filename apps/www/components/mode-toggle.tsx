@@ -22,23 +22,23 @@ const ThemeColorSwitcher = () => {
     <div className="flex flex-wrap gap-2">
       <Popover>
         <PopoverTrigger asChild>
-          <Button size="icon" variant="ghost">
-            <PaletteIcon size={18} />
+          <Button size="icon" variant="ghost" className="h-8 w-8">
+            <PaletteIcon size={16}/>
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="mr-1 mt-2 border-2">
+        <PopoverContent className="mr-1 mt-3 w-auto max-w-[100vw] border-2">
           <p className="mb-2 font-semibold">Dracula Pro</p>
           <div className="grid grid-cols-3 justify-between gap-2 border-b-2 pb-2">
             {[
-              "drac-pro-white",
-              "drac-pro-cyan",
-              "drac-pro-green",
-              "drac-pro-orange",
-              "drac-pro-pink",
-              "drac-pro-purple",
-              "drac-pro-red",
-              "drac-pro-yellow",
-              "drac-pro-light",
+              "theme-drac-pro-white",
+              "theme-drac-pro-cyan",
+              "theme-drac-pro-green",
+              "theme-drac-pro-orange",
+              "theme-drac-pro-pink",
+              "theme-drac-pro-purple",
+              "theme-drac-pro-red",
+              "theme-drac-pro-yellow",
+              "theme-drac-pro-light",
             ].map((color) => (
               <Button
                 key={color}
@@ -46,21 +46,21 @@ const ThemeColorSwitcher = () => {
                 onClick={() => changeThemeColor(color)}
                 className={`${color} capitalize`}
               >
-                {color.replace("drac-pro-", "")}
+                {color.replace("theme-drac-pro-", "")}
               </Button>
             ))}
           </div>
           <p className="my-2 font-semibold">Dracula</p>
           <div className="grid grid-cols-3 justify-between gap-2 border-b-2 pb-2">
             {[
-              "drac-white",
-              "drac-cyan",
-              "drac-green",
-              "drac-orange",
-              "drac-pink",
-              "drac-purple",
-              "drac-red",
-              "drac-yellow",
+              "theme-drac-white",
+              "theme-drac-cyan",
+              "theme-drac-green",
+              "theme-drac-orange",
+              "theme-drac-pink",
+              "theme-drac-purple",
+              "theme-drac-red",
+              "theme-drac-yellow",
             ].map((color) => (
               <Button
                 key={color}
@@ -68,7 +68,7 @@ const ThemeColorSwitcher = () => {
                 onClick={() => changeThemeColor(color)}
                 className={`${color} capitalize`}
               >
-                {color.replace("drac-", "")}
+                {color.replace("theme-drac-", "")}
               </Button>
             ))}
           </div>
@@ -77,8 +77,23 @@ const ThemeColorSwitcher = () => {
             <pre>Coming soon...</pre>
           </div>
           <p className="my-2 font-semibold">Catppuccin</p>
-          <div className="grid grid-cols-3 justify-between gap-2 pb-2">
+          <div className="grid grid-cols-3 justify-between gap-2 border-b-2 pb-2">
             <pre>Coming soon...</pre>
+          </div>
+          <p className="my-2 font-semibold">Other</p>
+          <div className="grid grid-cols-3 justify-between gap-2 pb-2">
+            {[
+              "theme-poimandres",
+            ].map((color) => (
+              <Button
+                key={color}
+                size="sm"
+                onClick={() => changeThemeColor(color)}
+                className={`${color} capitalize`}
+              >
+                {color.replace("theme-", "")}
+              </Button>
+            ))}
           </div>
         </PopoverContent>
       </Popover>

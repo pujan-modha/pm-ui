@@ -133,7 +133,7 @@ export function splitClassName(className: string): (string | null)[] {
   return parts
 }
 
-const PREFIXES = ["bg-", "text-", "border-", "ring-offset-", "ring-"]
+const PREFIXES = ["bg-", "text-", "border-"]
 
 export function applyColorMapping(
   input: string,
