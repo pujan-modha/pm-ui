@@ -9,39 +9,13 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/registry/default/ui/popover"
-import { useThemeColorStore } from "@/components/theme-color"
+import { useThemeColor } from "@/components/theme-color"
 
 const ThemeColorSwitcher = () => {
-  const setThemeColor = useThemeColorStore((state: any) => state.setThemeColor)
+  const { themeColor, setThemeColor } = useThemeColor()
 
   const changeThemeColor = (color: string) => {
     setThemeColor(color)
-    document.body.className = document.body.className
-      .split(" ")
-      .filter(
-        (cls) =>
-          ![
-            "drac-pro-light",
-            "drac-pro-white",
-            "drac-pro-cyan",
-            "drac-pro-green",
-            "drac-pro-orange",
-            "drac-pro-pink",
-            "drac-pro-purple",
-            "drac-pro-red",
-            "drac-pro-yellow",
-            "drac-white",
-            "drac-cyan",
-            "drac-green",
-            "drac-orange",
-            "drac-pink",
-            "drac-purple",
-            "drac-red",
-            "drac-yellow",
-          ].includes(cls)
-      )
-      .concat(color)
-      .join(" ")
   }
 
   return (

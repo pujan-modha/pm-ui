@@ -1,14 +1,16 @@
 import "@/styles/globals.css"
 import { Metadata, Viewport } from "next"
+import Script from "next/script"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
+import { themeScript } from "@/hooks/theme-script"
 import { Toaster as Sonner } from "@/registry/default/ui/sonner"
 import { Toaster as DefaultToaster } from "@/registry/default/ui/toaster"
 import { ThemeProvider } from "@/components/providers"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
-import { useThemeColorStore } from "@/components/theme-color"
+import { useThemeColor } from "@/components/theme-color"
 import { ThemeSwitcher } from "@/components/theme-switcher"
 
 export const metadata: Metadata = {
@@ -75,12 +77,33 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  const themeColor = useThemeColorStore.getState().themeColor
+  const themeColor = useThemeColor.getState().themeColor
 
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-        <head />
+        <head>
+          {/* <Script
+            id="theme-script"
+            dangerouslySetInnerHTML={{
+              __html: `
+          (function() {
+            try {
+              var savedTheme = localStorage.getItem('themeColor');
+              if (savedTheme) {
+                document.documentElement.classList.add(savedTheme);
+              } else {
+                document.documentElement.classList.add('drac-pro-cyan');
+              }
+            } catch (e) {}
+          })();
+        `,
+            }}
+          /> */}
+          <Script id="theme-script" strategy="afterInteractive">
+            {themeScript}
+          </Script>
+        </head>
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",

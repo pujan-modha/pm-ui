@@ -39,20 +39,13 @@ export default function IndexPage() {
         </PageActions>
       </PageHeader>
       <ExamplesNav className="[&>a:first-child]:text-primary" />
-      <section className="overflow-hidden rounded-lg border bg-background shadow-md md:hidden md:shadow-xl">
+      <section className="block overflow-hidden rounded bg-background shadow md:hidden md:rounded-2xl md:border-2">
         <Image
-          src="/examples/mail-dark.png"
-          width={1280}
-          height={727}
+          src="/examples/mail.png"
+          width={1368}
+          height={802}
           alt="Mail"
-          className="hidden dark:block"
-        />
-        <Image
-          src="/examples/mail-light.png"
-          width={1280}
-          height={727}
-          alt="Mail"
-          className="block dark:hidden"
+          className="block"
         />
       </section>
       <section className="hidden md:block">

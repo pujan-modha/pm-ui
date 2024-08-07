@@ -41,6 +41,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".contentlayer/generated"
-  ],
+, "hooks/theme-script.js"  ],
   "exclude": ["node_modules", "./scripts/build-registry.mts", "__registry__"]
 }

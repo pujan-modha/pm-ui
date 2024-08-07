@@ -4,38 +4,6 @@
 
 @layer base {
   :root {
-    --primary: 250 92% 66%;
-    --popover: 253 31% 12%;
-    --background: 254 12% 6%;
-    --foreground: 254 12% 100%;
-    --destructive: 10 92% 66%;
-    --radius: 1rem;
-    --chart-1: 265 89% 78%;
-    --chart-2: 65 92% 76%;
-    --chart-3: 326 100% 74%;
-    --chart-4: 135 94% 65%;
-    --chart-5: 0 100% 67%;
-    --chart-6: 191 97% 77%;
-    --chart-7: 31 100% 71%;
-  }
-
-  .drac-pro-light {
-    --primary: 254 12% 6%;
-    --popover: 240 2% 90%;
-    --background: 254 12% 100%;
-    --foreground: 254 12% 100%;
-    --destructive: 10 92% 66%;
-    --radius: 1rem;
-    --chart-1: 265 89% 78%;
-    --chart-2: 65 92% 76%;
-    --chart-3: 326 100% 74%;
-    --chart-4: 135 94% 65%;
-    --chart-5: 0 100% 67%;
-    --chart-6: 191 97% 77%;
-    --chart-7: 31 100% 71%;
-  }
-
-  .drac-pro-white {
     --primary: 254 12% 100%;
     --popover: 260 4% 15%;
     --background: 254 12% 6%;
@@ -51,7 +19,39 @@
     --chart-7: 31 100% 71%;
   }
 
-  .drac-pro-cyan {
+  :root.drac-pro-light {
+    --primary: 254 12% 6%;
+    --popover: 240 2% 90%;
+    --background: 254 12% 100%;
+    --foreground: 254 12% 100%;
+    --destructive: 10 92% 66%;
+    --radius: 1rem;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+
+  :root.drac-pro-white {
+    --primary: 254 12% 100%;
+    --popover: 260 4% 15%;
+    --background: 254 12% 6%;
+    --foreground: 254 12% 100%;
+    --destructive: 10 92% 66%;
+    --radius: 1rem;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+
+  :root.drac-pro-cyan {
     --primary: 180 88% 66%;
     --popover: 190 29% 12%;
     --background: 254 12% 6%;
@@ -67,7 +67,7 @@
     --chart-7: 31 100% 71%;
   }
 
-  .drac-pro-green {
+  :root.drac-pro-green {
     --primary: 115 92% 66%;
     --popover: 124, 23%, 12%;
     --background: 254 12% 6%;
@@ -83,7 +83,7 @@
     --chart-7: 31 100% 71%;
   }
 
-  .drac-pro-orange {
+  :root.drac-pro-orange {
     --primary: 35 92% 66%;
     --popover: 26, 23%, 12%;
     --background: 254 12% 6%;
@@ -99,7 +99,7 @@
     --chart-7: 31 100% 71%;
   }
 
-  .drac-pro-pink {
+  :root.drac-pro-pink {
     --primary: 330 92% 66%;
     --popover: 321, 29%, 12%;
     --background: 254 12% 6%;
@@ -115,7 +115,7 @@
     --chart-7: 31 100% 71%;
   }
 
-  .drac-pro-purple {
+  :root.drac-pro-purple {
     --primary: 250 92% 66%;
     --popover: 253 31% 12%;
     --background: 254 12% 6%;
@@ -131,7 +131,7 @@
     --chart-7: 31 100% 71%;
   }
 
-  .drac-pro-red {
+  :root.drac-pro-red {
     --primary: 10 92% 66%;
     --popover: 0, 23%, 12%;
     --background: 254 12% 6%;
@@ -147,7 +147,7 @@
     --chart-7: 31 100% 71%;
   }
 
-  .drac-pro-yellow {
+  :root.drac-pro-yellow {
     --primary: 60 92% 66%;
     --popover: 56 23% 12%;
     --background: 254 12% 6%;
@@ -163,7 +163,7 @@
     --chart-7: 31 100% 71%;
   }
 
-  .drac-white {
+  :root.drac-white {
     --primary: 60, 30%, 96%;
     --popover: 260 4% 15%;
     --background: 231, 15%, 18%;
@@ -179,7 +179,7 @@
     --chart-7: 31 100% 71%;
   }
 
-  .drac-cyan {
+  :root.drac-cyan {
     --primary: 191, 97%, 77%;
     --popover: 190 29% 12%;
     --background: 231, 15%, 18%;
@@ -195,7 +195,7 @@
     --chart-7: 31 100% 71%;
   }
 
-  .drac-green {
+  :root.drac-green {
     --primary: 135, 94%, 65%;
     --popover: 124, 23%, 12%;
     --background: 231, 15%, 18%;
@@ -211,7 +211,7 @@
     --chart-7: 31 100% 71%;
   }
 
-  .drac-orange {
+  :root.drac-orange {
     --primary: 31, 100%, 71%;
     --popover: 26, 23%, 12%;
     --background: 231, 15%, 18%;
@@ -227,7 +227,7 @@
     --chart-7: 31 100% 71%;
   }
 
-  .drac-pink {
+  :root.drac-pink {
     --primary: 326, 100%, 74%;
     --popover: 321, 29%, 12%;
     --background: 231, 15%, 18%;
@@ -243,7 +243,7 @@
     --chart-7: 31 100% 71%;
   }
 
-  .drac-purple {
+  :root.drac-purple {
     --primary: 265, 89%, 78%;
     --popover: 253 31% 12%;
     --background: 231, 15%, 18%;
@@ -259,7 +259,7 @@
     --chart-7: 31 100% 71%;
   }
 
-  .drac-red {
+  :root.drac-red {
     --primary: 0, 100%, 67%;
     --popover: 0, 23%, 12%;
     --background: 231, 15%, 18%;
@@ -275,7 +275,7 @@
     --chart-7: 31 100% 71%;
   }
 
-  .drac-yellow {
+  :root.drac-yellow {
     --primary: 65, 92%, 76%;
     --popover: 56 23% 12%;
     --background: 231, 15%, 18%;
