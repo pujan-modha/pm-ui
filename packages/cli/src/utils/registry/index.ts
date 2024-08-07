@@ -62,7 +62,7 @@ export async function getRegistryBaseColors() {
 }
 export async function getRegistryBaseColor(config: Config) {
   try {
-    const templateUrl = `${baseUrl}/registry/themes.css`
+    const templateUrl = `${baseUrl}/registry/template.css`
 
     // Fetch the template from the server
     const response = await fetch(templateUrl, { agent })

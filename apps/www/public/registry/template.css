@@ -1,0 +1,317 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 254 12% 100%;
+    --popover: 260 4% 15%;
+    --background: 254 12% 6%;
+    --foreground: 254 12% 100%;
+    --destructive: 10 92% 66%;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+
+  :root.theme-drac-pro-light {
+    --primary: 254 12% 6%;
+    --popover: 240 2% 90%;
+    --background: 254 12% 100%;
+    --foreground: 254 12% 100%;
+    --destructive: 10 92% 66%;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+    background-color: 254 12% 6%;
+  }
+
+  :root.theme-drac-pro-white {
+    --primary: 254 12% 100%;
+    --popover: 260 4% 15%;
+    --background: 254 12% 6%;
+    --foreground: 254 12% 100%;
+    --destructive: 10 92% 66%;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+
+  :root.theme-drac-pro-cyan {
+    --primary: 180 88% 66%;
+    --popover: 190 29% 12%;
+    --background: 254 12% 6%;
+    --foreground: 254 12% 100%;
+    --destructive: 10 92% 66%;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+
+  :root.theme-drac-pro-green {
+    --primary: 115 92% 66%;
+    --popover: 124 23% 12%;
+    --background: 254 12% 6%;
+    --foreground: 254 12% 100%;
+    --destructive: 10 92% 66%;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+
+  :root.theme-drac-pro-orange {
+    --primary: 35 92% 66%;
+    --popover: 26 23% 12%;
+    --background: 254 12% 6%;
+    --foreground: 254 12% 100%;
+    --destructive: 10 92% 66%;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+
+  :root.theme-drac-pro-pink {
+    --primary: 330 92% 66%;
+    --popover: 321 29% 12%;
+    --background: 254 12% 6%;
+    --foreground: 254 12% 100%;
+    --destructive: 10 92% 66%;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+
+  :root.theme-drac-pro-purple {
+    --primary: 250 92% 66%;
+    --popover: 253 31% 12%;
+    --background: 254 12% 6%;
+    --foreground: 254 12% 100%;
+    --destructive: 10 92% 66%;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+
+  :root.theme-drac-pro-red {
+    --primary: 10 92% 66%;
+    --popover: 0 23% 12%;
+    --background: 254 12% 6%;
+    --foreground: 254 12% 100%;
+    --destructive: 10 92% 66%;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+
+  :root.theme-drac-pro-yellow {
+    --primary: 60 92% 66%;
+    --popover: 56 23% 12%;
+    --background: 254 12% 6%;
+    --foreground: 254 12% 100%;
+    --destructive: 10 92% 66%;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+
+  :root.theme-drac-white {
+    --primary: 60 30% 96%;
+    --popover: 260 4% 15%;
+    --background: 231 15% 18%;
+    --foreground: 60 30% 96%;
+    --destructive: 0 100% 67%;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+
+  :root.theme-drac-cyan {
+    --primary: 191 97% 77%;
+    --popover: 190 29% 12%;
+    --background: 231 15% 18%;
+    --foreground: 60 30% 96%;
+    --destructive: 0 100% 67%;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+
+  :root.theme-drac-green {
+    --primary: 135 94% 65%;
+    --popover: 124 23% 12%;
+    --background: 231 15% 18%;
+    --foreground: 60 30% 96%;
+    --destructive: 0 100% 67%;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+
+  :root.theme-drac-orange {
+    --primary: 31 100% 71%;
+    --popover: 26 23% 12%;
+    --background: 231 15% 18%;
+    --foreground: 60 30% 96%;
+    --destructive: 0 100% 67%;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+
+  :root.theme-drac-pink {
+    --primary: 326 100% 74%;
+    --popover: 321 29% 12%;
+    --background: 231 15% 18%;
+    --foreground: 60 30% 96%;
+    --destructive: 0 100% 67%;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+
+  :root.theme-drac-purple {
+    --primary: 265 89% 78%;
+    --popover: 253 31% 12%;
+    --background: 231 15% 18%;
+    --foreground: 60 30% 96%;
+    --destructive: 0 100% 67%;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+
+  :root.theme-drac-red {
+    --primary: 0 100% 67%;
+    --popover: 0 23% 12%;
+    --background: 231 15% 18%;
+    --foreground: 60 30% 96%;
+    --destructive: 0 100% 67%;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+
+  :root.theme-drac-yellow {
+    --primary: 65 92% 76%;
+    --popover: 56 23% 12%;
+    --background: 231 15% 18%;
+    --foreground: 60 30% 96%;
+    --destructive: 0 100% 67%;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+  :root.theme-poimandres {
+    --primary: 167 71% 63%;
+    --popover: 194 25% 17%;
+    --background: 226 19% 13%;
+    --foreground: 209 74% 94%;
+    --destructive: 329 53% 61%;
+    --chart-1: 265 89% 78%;
+    --chart-2: 65 92% 76%;
+    --chart-3: 326 100% 74%;
+    --chart-4: 135 94% 65%;
+    --chart-5: 0 100% 67%;
+    --chart-6: 191 97% 77%;
+    --chart-7: 31 100% 71%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-primary;
+  }
+  body {
+    @apply bg-background text-primary;
+  }
+}
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  @apply bg-primary;
+}
+
+::selection {
+  @apply bg-primary;
+  @apply text-background;
+}
