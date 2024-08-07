@@ -6,10 +6,9 @@ import { z } from "zod"
 export const transformCssVars: Transformer = async ({
   sourceFile,
   config,
-  baseColor,
 }) => {
   // No transform if using css variables.
-  if (config.tailwind?.cssVariables || !baseColor?.inlineColors) {
+  if (config.tailwind?.cssVariables) {
     return sourceFile
   }
 
@@ -30,16 +29,16 @@ export const transformCssVars: Transformer = async ({
   //     jsxAttribute.setInitializer(`"${valueWithColorMapping}"`)
   //   }
   // }
-  sourceFile.getDescendantsOfKind(SyntaxKind.StringLiteral).forEach((node) => {
-    const value = node.getText()
-    if (value) {
-      const valueWithColorMapping = applyColorMapping(
-        value.replace(/"/g, ""),
-        baseColor.inlineColors
-      )
-      node.replaceWithText(`"${valueWithColorMapping.trim()}"`)
-    }
-  })
+  // sourceFile.getDescendantsOfKind(SyntaxKind.StringLiteral).forEach((node) => {
+  //   const value = node.getText()
+  //   if (value) {
+  //     const valueWithColorMapping = applyColorMapping(
+  //       value.replace(/"/g, ""),
+  //       baseColor.inlineColors
+  //     )
+  //     node.replaceWithText(`"${valueWithColorMapping.trim()}"`)
+  //   }
+  // })
 
   return sourceFile
 }

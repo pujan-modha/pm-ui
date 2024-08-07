@@ -17,7 +17,6 @@ import { Foo } from "bar"
       config: {
         tsx: true,
         tailwind: {
-          baseColor: "neutral",
           cssVariables: true,
         },
         aliases: {

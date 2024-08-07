@@ -16,7 +16,6 @@ export type TransformOpts = {
   filename: string
   raw: string
   config: Config
-  baseColor?: z.infer<typeof registryBaseColorSchema>
 }
 
 export type Transformer<Output = SourceFile> = (

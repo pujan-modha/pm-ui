@@ -54,7 +54,7 @@ export function DocsSidebarNavItems({
               "group flex w-full items-center rounded-md border border-transparent px-2 py-1 hover:underline",
               item.disabled && "cursor-not-allowed opacity-60",
               pathname === item.href
-                ? "font-medium text-primary"
+                ? "text-primary font-medium"
                 : "text-primary"
             )}
             target={item.external ? "_blank" : ""}
@@ -62,7 +62,7 @@ export function DocsSidebarNavItems({
           >
             {item.title}
             {item.label && (
-              <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
+              <span className="bg-primary text-background ml-2 rounded-full px-1.5 py-0.5 text-xs font-medium leading-none no-underline group-hover:no-underline">
                 {item.label}
               </span>
             )}
@@ -71,13 +71,13 @@ export function DocsSidebarNavItems({
           <span
             key={index}
             className={cn(
-              "flex w-full cursor-not-allowed items-center rounded-md p-2 text-primary hover:underline",
+              "text-primary flex w-full cursor-not-allowed items-center rounded-md p-2 hover:underline",
               item.disabled && "cursor-not-allowed opacity-60"
             )}
           >
             {item.title}
             {item.label && (
-              <span className="ml-2 rounded-md bg-muted px-1.5 py-0.5 text-xs leading-none text-primary no-underline group-hover:no-underline">
+              <span className="bg-muted text-primary ml-2 rounded-md px-1.5 py-0.5 text-xs leading-none no-underline group-hover:no-underline">
                 {item.label}
               </span>
             )}

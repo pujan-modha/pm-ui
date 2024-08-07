@@ -4,7 +4,6 @@ import {
   applyColorMapping,
   splitClassName,
 } from "../../src/utils/transformers/transform-css-vars"
-import baseColor from "../fixtures/colors/slate.json"
 
 describe("split className", () => {
   test.each([

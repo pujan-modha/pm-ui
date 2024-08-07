@@ -15,7 +15,6 @@ export function Foo() {
       config: {
         tsx: true,
         tailwind: {
-          baseColor: "stone",
           cssVariables: true,
         },
         aliases: {
@@ -23,7 +22,6 @@ export function Foo() {
           utils: "@/lib/utils",
         },
       },
-      baseColor: stone,
     })
   ).toMatchSnapshot()
 
@@ -38,7 +36,6 @@ export function Foo() {
       config: {
         tsx: true,
         tailwind: {
-          baseColor: "stone",
           cssVariables: false,
         },
         aliases: {
@@ -46,7 +43,6 @@ export function Foo() {
           utils: "@/lib/utils",
         },
       },
-      baseColor: stone,
     })
   ).toMatchSnapshot()
 
@@ -61,7 +57,6 @@ export function Foo() {
       config: {
         tsx: true,
         tailwind: {
-          baseColor: "stone",
           cssVariables: false,
         },
         aliases: {
@@ -69,7 +64,6 @@ export function Foo() {
           utils: "@/lib/utils",
         },
       },
-      baseColor: stone,
     })
   ).toMatchSnapshot()
 
@@ -84,7 +78,6 @@ export function Foo() {
       config: {
         tsx: true,
         tailwind: {
-          baseColor: "stone",
           cssVariables: false,
         },
         aliases: {
@@ -92,7 +85,6 @@ export function Foo() {
           utils: "@/lib/utils",
         },
       },
-      baseColor: stone,
     })
   ).toMatchSnapshot()
 })

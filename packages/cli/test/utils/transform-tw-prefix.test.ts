@@ -15,7 +15,6 @@ test("transform tailwind prefix", async () => {
         `,
       config: {
         tailwind: {
-          baseColor: "stone",
           prefix: "tw-",
         },
         aliases: {
@@ -23,7 +22,6 @@ test("transform tailwind prefix", async () => {
           utils: "@/lib/utils",
         },
       },
-      baseColor: "stone",
     })
   ).toMatchSnapshot()
 
@@ -37,7 +35,6 @@ export function Foo() {
     `,
       config: {
         tailwind: {
-          baseColor: "stone",
           cssVariables: false,
           prefix: "tw-",
         },
@@ -46,7 +43,6 @@ export function Foo() {
           utils: "@/lib/utils",
         },
       },
-      baseColor: stone,
     })
   ).toMatchSnapshot()
 
@@ -60,7 +56,6 @@ export function Foo() {
     `,
       config: {
         tailwind: {
-          baseColor: "stone",
           cssVariables: false,
           prefix: "tw-",
         },
@@ -69,7 +64,6 @@ export function Foo() {
           utils: "@/lib/utils",
         },
       },
-      baseColor: stone,
     })
   ).toMatchSnapshot()
 

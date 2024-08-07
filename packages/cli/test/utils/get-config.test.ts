@@ -15,7 +15,6 @@ test("get raw config", async () => {
     tailwind: {
       config: "./tailwind.config.ts",
       css: "./src/assets/css/tailwind.css",
-      baseColor: "neutral",
       cssVariables: false,
     },
     rsc: false,
@@ -47,7 +46,6 @@ test("get config", async () => {
     tailwind: {
       config: "./tailwind.config.ts",
       css: "./src/assets/css/tailwind.css",
-      baseColor: "neutral",
       cssVariables: false,
     },
     rsc: false,
@@ -89,7 +87,6 @@ test("get config", async () => {
     tsx: true,
     tailwind: {
       config: "tailwind.config.ts",
-      baseColor: "zinc",
       css: "src/app/globals.css",
       cssVariables: true,
       prefix: "tw-",
@@ -134,7 +131,6 @@ test("get config", async () => {
     tailwind: {
       config: "./tailwind.config.js",
       css: "./src/assets/css/tailwind.css",
-      baseColor: "neutral",
       cssVariables: false,
     },
     rsc: false,
