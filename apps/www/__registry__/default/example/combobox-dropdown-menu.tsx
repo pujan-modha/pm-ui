@@ -41,7 +41,7 @@ export default function ComboboxDropdownMenu() {
   const [open, setOpen] = React.useState(false)
 
   return (
-    <div className="flex w-full flex-col items-start justify-between rounded-2xl border-2 px-4 py-3 sm:flex-row sm:items-center">
+    <div className="flex w-full flex-row items-center justify-between rounded-2xl border-2 px-4 py-3">
       <p className="text-sm font-medium leading-none">
         <span className="mr-2 rounded-full bg-primary px-2 py-1 text-xs text-background">
           {label}
