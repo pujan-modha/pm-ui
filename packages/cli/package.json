@@ -1,6 +1,6 @@
 {
   "name": "@pujan-modha/pm-ui",
-  "version": "0.0.92",
+  "version": "0.0.98",
   "description": "Add (colorful) components to your apps.",
   "publishConfig": {
     "access": "public"

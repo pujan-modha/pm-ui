@@ -36,7 +36,7 @@ const project = new Project({
 })
 
 async function createTempSourceFile(filename: string) {
-  const dir = await fs.mkdtemp(path.join(tmpdir(), "pm-"))
+  const dir = await fs.mkdtemp(path.join(tmpdir(), "shadcn-"))
   return path.join(dir, filename)
 }
 

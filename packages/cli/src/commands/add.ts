@@ -4,11 +4,7 @@ import { Config, getConfig } from "@/src/utils/get-config"
 import { getPackageManager } from "@/src/utils/get-package-manager"
 import { handleError } from "@/src/utils/handle-error"
 import { logger } from "@/src/utils/logger"
-import {
-  fetchTree,
-  getRegistryIndex,
-  resolveTree,
-} from "@/src/utils/registry"
+import { fetchTree, getRegistryIndex, resolveTree } from "@/src/utils/registry"
 import { transform } from "@/src/utils/transformers"
 import chalk from "chalk"
 import { Command } from "commander"
@@ -16,6 +12,7 @@ import { execa } from "execa"
 import ora from "ora"
 import prompts from "prompts"
 import { z } from "zod"
+
 import { registryItemWithContentSchema } from "../utils/registry/schema"
 
 const addOptionsSchema = z.object({

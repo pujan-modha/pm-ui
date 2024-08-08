@@ -14,9 +14,7 @@ import { getPackageManager } from "@/src/utils/get-package-manager"
 import { getProjectConfig, preFlight } from "@/src/utils/get-project-info"
 import { handleError } from "@/src/utils/handle-error"
 import { logger } from "@/src/utils/logger"
-import {
-  getRegistryBaseColor,
-} from "@/src/utils/registry"
+import { getRegistryBaseColor } from "@/src/utils/registry"
 import * as templates from "@/src/utils/templates"
 import chalk from "chalk"
 import { Command } from "commander"
@@ -25,8 +23,6 @@ import template from "lodash.template"
 import ora from "ora"
 import prompts from "prompts"
 import { z } from "zod"
-
-import { applyPrefixesCss } from "../utils/transformers/transform-tw-prefix"
 
 const PROJECT_DEPENDENCIES = [
   "tailwindcss-animate",
@@ -118,7 +114,7 @@ export async function promptForConfig(
     {
       type: "text",
       name: "tailwindConfig",
-      message: `Where is your ${highlight("tailwind.config.js")} located?`,
+      message: `Where is your ${highlight("tailwind.config.ts")} located?`,
       initial: defaultConfig?.tailwind.config ?? DEFAULT_TAILWIND_CONFIG,
     },
     {

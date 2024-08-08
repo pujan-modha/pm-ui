@@ -1,15 +1,16 @@
-import fs from "fs/promises";
-import path from "path";
-import { config } from "process";
-import { Config } from "@/src/utils/get-config";
-import { registryIndexSchema, registryItemWithContentSchema, registryWithContentSchema, stylesSchema } from "@/src/utils/registry/schema";
-import { HttpsProxyAgent } from "https-proxy-agent";
-import fetch from "node-fetch";
-import { z } from "zod";
-
-
-
-
+import fs from "fs/promises"
+import path from "path"
+import { config } from "process"
+import { Config } from "@/src/utils/get-config"
+import {
+  registryIndexSchema,
+  registryItemWithContentSchema,
+  registryWithContentSchema,
+  stylesSchema,
+} from "@/src/utils/registry/schema"
+import { HttpsProxyAgent } from "https-proxy-agent"
+import fetch from "node-fetch"
+import { z } from "zod"
 
 const baseUrl = process.env.COMPONENTS_REGISTRY_URL ?? "https://ui.pujan.pm"
 const agent = process.env.https_proxy
@@ -113,7 +114,7 @@ export async function getItemTargetPath(
     return override
   }
 
-  if (item.type === "components:ui" && config.aliases?.ui) {
+  if (item.type === "components:ui" && config.aliases.ui) {
     return config.resolvedPaths.ui
   }
 
@@ -122,14 +123,10 @@ export async function getItemTargetPath(
     return null
   }
 
-  const basePath =
-    config.resolvedPaths[parent as keyof typeof config.resolvedPaths]
-
-  // Use the project structure information from the config
-  const projectRoot = path.dirname(config.resolvedPaths.tailwindConfig)
-  const relativePath = path.relative(projectRoot, basePath)
-
-  return path.join(projectRoot, relativePath, type)
+  return path.join(
+    config.resolvedPaths[parent as keyof typeof config.resolvedPaths],
+    type
+  )
 }
 
 async function fetchRegistry(paths: string[]) {

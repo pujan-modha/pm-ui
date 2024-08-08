@@ -1,19 +1,14 @@
-import path from "path";
-import { resolveImport } from "@/src/utils/resolve-import";
-import { cosmiconfig } from "cosmiconfig";
-import { loadConfig } from "tsconfig-paths";
-import { z } from "zod";
-
-
-
-
+import path from "path"
+import { resolveImport } from "@/src/utils/resolve-import"
+import { cosmiconfig } from "cosmiconfig"
+import { loadConfig } from "tsconfig-paths"
+import { z } from "zod"
 
 export const DEFAULT_STYLE = "default"
 export const DEFAULT_COMPONENTS = "@/components"
 export const DEFAULT_UTILS = "@/lib/utils"
 export const DEFAULT_TAILWIND_CSS = "app/globals.css"
-export const DEFAULT_TAILWIND_CONFIG = "tailwind.config.js"
-export const DEFAULT_TAILWIND_BASE_COLOR = "slate"
+export const DEFAULT_TAILWIND_CONFIG = "tailwind.config.ts"
 
 // TODO: Figure out if we want to support all cosmiconfig formats.
 // A simple components.json file would be nice.
@@ -77,24 +72,16 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
     )
   }
 
-  const resolvePath = async (aliasPath: string) => {
-    if (aliasPath.startsWith("@/")) {
-      // Remove the "@/" prefix and resolve from the project root
-      return path.resolve(cwd, aliasPath.slice(2))
-    }
-    return await resolveImport(aliasPath, tsConfig)
-  }
-
   return configSchema.parse({
     ...config,
     resolvedPaths: {
       tailwindConfig: path.resolve(cwd, config.tailwind.config),
       tailwindCss: path.resolve(cwd, config.tailwind.css),
-      utils: await resolvePath(config.aliases.utils),
-      components: await resolvePath(config.aliases.components),
-      ui: config.aliases.ui
-        ? await resolvePath(config.aliases.ui)
-        : await resolvePath(config.aliases.components),
+      utils: await resolveImport(config.aliases["utils"], tsConfig),
+      components: await resolveImport(config.aliases["components"], tsConfig),
+      ui: config.aliases["ui"]
+        ? await resolveImport(config.aliases["ui"], tsConfig)
+        : await resolveImport(config.aliases["components"], tsConfig),
     },
   })
 }

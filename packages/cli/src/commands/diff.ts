@@ -6,7 +6,6 @@ import { logger } from "@/src/utils/logger"
 import {
   fetchTree,
   getItemTargetPath,
-  getRegistryBaseColor,
   getRegistryIndex,
 } from "@/src/utils/registry"
 import { registryIndexSchema } from "@/src/utils/registry/schema"
