@@ -7,7 +7,7 @@ import { Separator } from "@/registry/default/ui/separator"
 export function Announcement() {
   return (
     <Link
-      href="https://pujan.pm/blog/pm-ui"
+      href="https://pujan.pm/blog/introducing-pm-ui"
       className="group inline-flex items-center px-0.5 text-sm font-medium"
     >
       <PartyPopper className="h-4 w-4" />{" "}
