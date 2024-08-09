@@ -68,7 +68,7 @@ export default function NavigationMenuDemo() {
                   >
                     <div className="mb-2 mt-4 text-lg font-medium">pm/ui</div>
                     <p className="text-sm leading-tight">
-                      Beautifully designed components that you can copy and
+                      Beautifully themed components that you can copy and
                       paste into your apps. Accessible. Customizable. Open
                       Source.
                     </p>
@@ -105,7 +105,7 @@ export default function NavigationMenuDemo() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/docs" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+            <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "!rounded-full")}>
               Documentation
             </NavigationMenuLink>
           </Link>

@@ -31,7 +31,7 @@ export function DemoGithub() {
         <div className="space-y-1">
           <CardTitle>pm/ui</CardTitle>
           <CardDescription>
-            Beautifully designed components that you can copy and paste into
+            Beautifully themed components that you can copy and paste into
             your apps. Accessible. Customizable. Open Source.
           </CardDescription>
         </div>

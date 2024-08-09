@@ -20,7 +20,7 @@ export default function IndexPage() {
         <Announcement />
         <PageHeaderHeading>Build your component library</PageHeaderHeading>
         <PageHeaderDescription>
-          Beautifully designed components that you can copy and paste into your
+          Beautifully themed components that you can copy and paste into your
           apps.
         </PageHeaderDescription>
         <PageActions>
