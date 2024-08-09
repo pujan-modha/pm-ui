@@ -40,18 +40,11 @@ export default function PlaygroundPage() {
     <>
       <div className="md:hidden">
         <Image
-          src="/examples/playground-light.png"
-          width={1280}
-          height={916}
+          src="/examples/playground.png"
+          width={1141}
+          height={729}
           alt="Playground"
-          className="block dark:hidden"
-        />
-        <Image
-          src="/examples/playground-dark.png"
-          width={1280}
-          height={916}
-          alt="Playground"
-          className="hidden dark:block"
+          className="block"
         />
       </div>
       <div className="hidden h-full flex-col md:flex">

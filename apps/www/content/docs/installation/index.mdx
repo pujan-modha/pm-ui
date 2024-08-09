@@ -6,7 +6,10 @@ description: How to install dependencies and structure your app.
 ## Frameworks
 
 <div className="grid sm:grid-cols-2 gap-4 mt-8 sm:gap-6">
-  <LinkedCard href="/docs/installation/next">
+  <LinkedCard
+    href="/docs/installation/next"
+    className="rounded-2xl border-2 bg-popover hover:bg-transparent duration-300"
+  >
     <svg
       role="img"
       viewBox="0 0 24 24"
@@ -19,7 +22,10 @@ description: How to install dependencies and structure your app.
     </svg>
     <p className="font-medium mt-2">Next.js</p>
   </LinkedCard>
-  <LinkedCard href="/docs/installation/vite">
+  <LinkedCard
+    href="/docs/installation/vite"
+    className="rounded-2xl border-2 bg-popover hover:bg-transparent duration-300"
+  >
     <svg
       role="img"
       viewBox="0 0 24 24"
@@ -32,7 +38,10 @@ description: How to install dependencies and structure your app.
     </svg>
     <p className="font-medium mt-2">Vite</p>
   </LinkedCard>
-  <LinkedCard href="/docs/installation/remix">
+  <LinkedCard
+    href="/docs/installation/remix"
+    className="rounded-2xl border-2 bg-popover hover:bg-transparent duration-300"
+  >
     <svg
       role="img"
       viewBox="0 0 24 24"
@@ -45,7 +54,10 @@ description: How to install dependencies and structure your app.
     </svg>
     <p className="font-medium mt-2">Remix</p>
   </LinkedCard>
-  <LinkedCard href="/docs/installation/gatsby">
+  <LinkedCard
+    href="/docs/installation/gatsby"
+    className="rounded-2xl border-2 bg-popover hover:bg-transparent duration-300"
+  >
     <svg
       role="img"
       viewBox="0 0 24 24"
@@ -58,7 +70,10 @@ description: How to install dependencies and structure your app.
     </svg>
     <p className="font-medium mt-2">Gatsby</p>
   </LinkedCard>
-  <LinkedCard href="/docs/installation/astro">
+  <LinkedCard
+    href="/docs/installation/astro"
+    className="rounded-2xl border-2 bg-popover hover:bg-transparent duration-300"
+  >
     <svg
       role="img"
       viewBox="0 0 24 24"
@@ -74,7 +89,10 @@ description: How to install dependencies and structure your app.
     </svg>
     <p className="font-medium mt-2">Astro</p>
   </LinkedCard>
-  <LinkedCard href="/docs/installation/laravel">
+  <LinkedCard
+    href="/docs/installation/laravel"
+    className="rounded-2xl border-2 bg-popover hover:bg-transparent duration-300"
+  >
     <svg
       role="img"
       viewBox="0 0 62 65"
@@ -86,7 +104,10 @@ description: How to install dependencies and structure your app.
     </svg>
     <p className="font-medium mt-2">Laravel</p>
   </LinkedCard>
-  <LinkedCard href="/docs/installation/manual">
+  <LinkedCard
+    href="/docs/installation/manual"
+    className="rounded-2xl border-2 bg-popover hover:bg-transparent duration-300"
+  >
     <svg
       role="img"
       viewBox="0 0 24 24"
@@ -109,13 +130,12 @@ However we provide a JavaScript version of the components as well. The JavaScrip
 
 To opt-out of TypeScript, you can use the `tsx` flag in your `components.json` file.
 
-```json {10} title="components.json"
+```json {9} title="components.json"
 {
   "style": "default",
   "tailwind": {
-    "config": "tailwind.config.js",
+    "config": "tailwind.config.ts",
     "css": "src/app/globals.css",
-    "baseColor": "zinc",
     "cssVariables": true
   },
   "rsc": false,

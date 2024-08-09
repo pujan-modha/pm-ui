@@ -1,13 +1,31 @@
-import { getColors } from "@/lib/colors"
-import { ColorPalette } from "@/components/color-palette"
+import colorData from "@/public/registry/colors.json"
 
-const colors = getColors()
+import ColorGroup from "@/components/color-group"
 
 export default function ColorsPage() {
+  const groupedColors = Object.entries(colorData).reduce(
+    (acc, [themeName, colors]) => {
+      const groupName = themeName.startsWith("theme-drac-pro")
+        ? "Dracula Pro"
+        : themeName.startsWith("theme-drac")
+        ? "Dracula"
+        : "Other"
+      if (!acc[groupName]) {
+        acc[groupName] = []
+      }
+      acc[groupName].push({ themeName, colors })
+      return acc
+    },
+    {} as Record<
+      string,
+      Array<{ themeName: string; colors: Record<string, string> }>
+    >
+  )
+
   return (
-    <div id="colors" className="grid scroll-mt-20 gap-8">
-      {colors.map((colorPalette) => (
-        <ColorPalette key={colorPalette.name} colorPalette={colorPalette} />
+    <div className="space-y-8">
+      {Object.entries(groupedColors).map(([groupName, themes]) => (
+        <ColorGroup key={groupName} groupName={groupName} themes={themes} />
       ))}
     </div>
   )

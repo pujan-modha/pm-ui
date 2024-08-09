@@ -23,7 +23,7 @@ const ThemeColorSwitcher = () => {
       <Popover>
         <PopoverTrigger asChild>
           <Button size="icon" variant="ghost" className="h-8 w-8">
-            <PaletteIcon size={16}/>
+            <PaletteIcon size={16} />
           </Button>
         </PopoverTrigger>
         <PopoverContent className="mr-1 mt-3 w-auto max-w-[100vw] border-2">
@@ -61,6 +61,7 @@ const ThemeColorSwitcher = () => {
               "theme-drac-purple",
               "theme-drac-red",
               "theme-drac-yellow",
+              "theme-drac-light",
             ].map((color) => (
               <Button
                 key={color}
@@ -82,9 +83,7 @@ const ThemeColorSwitcher = () => {
           </div>
           <p className="my-2 font-semibold">Other</p>
           <div className="grid grid-cols-3 justify-between gap-2 pb-2">
-            {[
-              "theme-poimandres",
-            ].map((color) => (
+            {["theme-poimandres"].map((color) => (
               <Button
                 key={color}
                 size="sm"

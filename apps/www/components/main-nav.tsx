@@ -15,7 +15,7 @@ export function MainNav() {
     <div className="mr-4 hidden md:flex">
       <Link href="/" className="mr-4 flex items-center space-x-2 lg:mr-6">
         <Icons.logo className="h-6 w-6" />
-        <span className="hidden font-bold text-primary lg:inline-block">
+        <span className="text-primary hidden font-bold lg:inline-block">
           {siteConfig.name}
         </span>
       </Link>
@@ -23,7 +23,7 @@ export function MainNav() {
         <Link
           href="/docs"
           className={cn(
-            "transition-colors hover:text-primary",
+            "hover:text-primary transition-colors",
             pathname === "/docs"
               ? "font-medium underline underline-offset-2"
               : "text-primary"
@@ -34,7 +34,7 @@ export function MainNav() {
         <Link
           href="/docs/components"
           className={cn(
-            "transition-colors hover:text-primary",
+            "hover:text-primary transition-colors",
             pathname?.startsWith("/docs/components") &&
               !pathname?.startsWith("/docs/component/chart")
               ? "font-medium underline underline-offset-2"
@@ -44,32 +44,20 @@ export function MainNav() {
           Components
         </Link>
         <Link
-          href="https://ui.shadcn.com/charts"
-          className={cn(
-            "transition-colors hover:text-primary",
-            pathname?.startsWith("/docs/component/chart") ||
-              pathname?.startsWith("/charts")
-              ? "font-medium underline underline-offset-2"
-              : "text-primary"
-          )}
-        >
-          Charts
-        </Link>
-        <Link
           href="/docs/theming"
           className={cn(
-            "transition-colors hover:text-primary",
-            pathname?.startsWith("/themes")
+            "hover:text-primary transition-colors",
+            pathname?.startsWith("/docs/theming")
               ? "font-medium underline underline-offset-2"
               : "text-primary"
           )}
         >
-          Themes
+          Theming
         </Link>
         <Link
           href="/examples"
           className={cn(
-            "transition-colors hover:text-primary",
+            "hover:text-primary transition-colors",
             pathname?.startsWith("/examples")
               ? "font-medium underline underline-offset-2"
               : "text-primary"
@@ -80,7 +68,7 @@ export function MainNav() {
         <Link
           href="/colors"
           className={cn(
-            "transition-colors hover:text-primary",
+            "hover:text-primary transition-colors",
             pathname?.startsWith("/colors")
               ? "font-medium underline underline-offset-2"
               : "text-primary"

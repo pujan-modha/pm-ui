@@ -51,7 +51,7 @@ import TooltipDemo from "@/registry/default/example/tooltip-demo"
 
 export default function KitchenSinkPage() {
   return (
-    <div className="container">
+    <div className="px-[4rem] py-[2rem]">
       <div className="grid gap-4">
         <div className="grid grid-cols-3 items-start gap-4">
           <div className="grid gap-4">

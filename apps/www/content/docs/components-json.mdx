@@ -31,18 +31,6 @@ You can see the JSON Schema for `components.json` [here](https://ui.pujan.pm/sch
 }
 ```
 
-## style
-
-The style for your components. **This cannot be changed after initialization.**
-
-```json title="components.json"
-{
-  "style": "default" | "new-york"
-}
-```
-
-<ComponentPreview name="card-with-form" />
-
 ## tailwind
 
 Configuration to help the CLI understand how Tailwind CSS is set up in your project.
@@ -69,48 +57,6 @@ Path to the CSS file that imports Tailwind CSS into your project.
 {
   "tailwind": {
     "css": "styles/global.css"
-  }
-}
-```
-
-### tailwind.baseColor
-
-This is used to generate the default color palette for your components. **This cannot be changed after initialization.**
-
-```json title="components.json"
-{
-  "tailwind": {
-    "baseColor": "gray" | "neutral" | "slate" | "stone" | "zinc"
-  }
-}
-```
-
-### tailwind.cssVariables
-
-You can choose between using CSS variables or Tailwind CSS utility classes for theming.
-
-To use utility classes for theming set `tailwind.cssVariables` to `false`. For CSS variables, set `tailwind.cssVariables` to `true`.
-
-```json title="components.json"
-{
-  "tailwind": {
-    "cssVariables": `true` | `false`
-  }
-}
-```
-
-For more information, see the <Link href="/docs/theming">theming docs</Link>.
-
-**This cannot be changed after initialization.** To switch between CSS variables and utility classes, you'll have to delete and re-install your components.
-
-### tailwind.prefix
-
-The prefix to use for your Tailwind CSS utility classes. Components will be added with this prefix.
-
-```json title="components.json"
-{
-  "tailwind": {
-    "prefix": "tw-"
   }
 }
 ```

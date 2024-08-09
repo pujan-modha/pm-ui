@@ -22,7 +22,9 @@ export function SiteFooter() {
                   asChild
                   className="animate-pulse cursor-pointer"
                 >
-                  <span className="bg-primary bg-clip-text text-transparent">🤍</span>
+                  <span className="bg-primary bg-clip-text text-transparent">
+                    🤍
+                  </span>
                 </TooltipTrigger>
                 <TooltipContent className="rounded-full">
                   <Link

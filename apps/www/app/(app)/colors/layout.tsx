@@ -11,11 +11,11 @@ import {
 } from "@/components/page-header"
 
 export const metadata: Metadata = {
-  title: "Tailwind Colors",
-  description: "All colors in all formats.",
+  title: "Color Themes",
+  description: "Color Themes to use in your project.",
 }
 
-export default function ChartsLayout({
+export default function ColorsLayout({
   children,
 }: {
   children: React.ReactNode
@@ -24,9 +24,9 @@ export default function ChartsLayout({
     <div className="container relative">
       <PageHeader>
         <Announcement />
-        <PageHeaderHeading>Tailwind Colors</PageHeaderHeading>
+        <PageHeaderHeading>Color Themes</PageHeaderHeading>
         <PageHeaderDescription>
-          Tailwind CSS colors in HSL, RGB, and HEX formats.
+          Color Themes to use in your project.
         </PageHeaderDescription>
         <PageActions>
           <Button asChild size="sm">
@@ -37,7 +37,7 @@ export default function ChartsLayout({
           </Button>
         </PageActions>
       </PageHeader>
-      <section id="charts" className="scroll-mt-20">
+      <section id="colors" className="scroll-mt-20">
         {children}
       </section>
     </div>

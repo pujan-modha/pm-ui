@@ -57,6 +57,13 @@ npm install @radix-ui/react-dialog
 
 ## Usage
 
+<Steps>
+  <Step>
+    Add className `border-2` if you are not using any other component directly
+    inside the `Dialog`.
+  </Step>
+</Steps>
+
 ```tsx
 import {
   Dialog,
@@ -71,7 +78,7 @@ import {
 ```tsx
 <Dialog>
   <DialogTrigger>Open</DialogTrigger>
-  <DialogContent>
+  <DialogContent className="border-2">
     <DialogHeader>
       <DialogTitle>Are you absolutely sure?</DialogTitle>
       <DialogDescription>

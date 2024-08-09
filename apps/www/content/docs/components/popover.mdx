@@ -56,6 +56,13 @@ npm install @radix-ui/react-popover
 
 ## Usage
 
+<Steps>
+  <Step>
+    Add className `border-2` if you are not using any other component directly
+    inside the `Popover`.
+  </Step>
+</Steps>
+
 ```tsx
 import {
   Popover,
@@ -67,6 +74,6 @@ import {
 ```tsx
 <Popover>
   <PopoverTrigger>Open</PopoverTrigger>
-  <PopoverContent>Place content for the popover here.</PopoverContent>
+  <PopoverContent className="border-2">Place content for the popover here.</PopoverContent>
 </Popover>
 ```

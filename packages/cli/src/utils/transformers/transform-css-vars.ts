@@ -3,10 +3,7 @@ import { Transformer } from "@/src/utils/transformers"
 import { ScriptKind, SyntaxKind } from "ts-morph"
 import { z } from "zod"
 
-export const transformCssVars: Transformer = async ({
-  sourceFile,
-  config,
-}) => {
+export const transformCssVars: Transformer = async ({ sourceFile, config }) => {
   // No transform if using css variables.
   if (config.tailwind?.cssVariables) {
     return sourceFile

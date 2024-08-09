@@ -29,18 +29,11 @@ export default function MusicPage() {
     <>
       <div className="md:hidden">
         <Image
-          src="/examples/music-light.png"
-          width={1280}
-          height={1114}
+          src="/examples/music.png"
+          width={1141}
+          height={808}
           alt="Music"
-          className="block dark:hidden"
-        />
-        <Image
-          src="/examples/music-dark.png"
-          width={1280}
-          height={1114}
-          alt="Music"
-          className="hidden dark:block"
+          className="block"
         />
       </div>
       <div className="hidden md:block">

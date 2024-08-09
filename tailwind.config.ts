@@ -17,7 +17,7 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: "hsl(var(--primary))",
-        destructive: "hsl(var(--destructive)",
+        destructive: "hsl(var(--destructive))",
         popover: "hsl(var(--popover))",
       },
       fontFamily: {

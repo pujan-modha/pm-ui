@@ -17,7 +17,7 @@ export default function MailPage() {
         <Image
           src="/examples/mail.png"
           width={1368}
-          height={802}
+          height={804}
           alt="Mail"
           className="block"
         />

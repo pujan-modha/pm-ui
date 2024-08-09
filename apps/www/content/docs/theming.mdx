@@ -1,81 +1,57 @@
 ---
 title: Theming
-description: Using CSS Variables or Tailwind CSS for theming.
+description: Understand pm-ui's theming system.
 ---
 
-You can choose between using CSS variables or Tailwind CSS utility classes for theming.
+## Understand design philosophy
 
-## Utility classes
+Every component is either `rounded-2xl`(1rem) or `rounded-full` depending on the size. Components like Button, Input, Badge, etc. are `rounded-full` by default and components like Card, ContextMenu, etc. are `rounded-2xl` by default.
 
-```tsx /bg-zinc-950/ /text-zinc-50/ /dark:bg-white/ /dark:text-zinc-950/
-<div className="bg-zinc-950 dark:bg-white" />
-```
+Every component has a `border-2` by default and a `border-primary` color by default.
 
-To use utility classes for theming set `tailwind.cssVariables` to `false` in your `components.json` file.
+Every component has a `bg-popover` for background color which is basically the primary color of the component with 10% opacity.
 
-```json {8} title="components.json"
-{
-  "style": "default",
-  "rsc": true,
-  "tailwind": {
-    "config": "tailwind.config.js",
-    "css": "app/globals.css",
-    "baseColor": "slate",
-    "cssVariables": false
-  },
-  "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils"
-  }
-}
-```
+Body has a `bg-background` color and `text-primary` color.
 
-## CSS Variables
+These specs can vary depending on the component variant. For example, Button has a variant of Filled. In this case, the background color of the button is `bg-primary` and the text color is `text-background`.
 
-```tsx /bg-background/ /text-primary/
-<div className="bg-background text-primary" />
-```
+## Changing themes
 
-To use CSS variables for theming set `tailwind.cssVariables` to `true` in your `components.json` file.
+You can change themes by just changing variables in your global CSS file. Check pre-made themes [Here](/colors).
 
-```json {8} title="components.json"
-{
-  "style": "default",
-  "rsc": true,
-  "tailwind": {
-    "config": "tailwind.config.js",
-    "css": "app/globals.css",
-    "baseColor": "slate",
-    "cssVariables": true
-  },
-  "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils"
+```css {3-7} title="Change these variables in your global CSS file."
+@layer base {
+  :root {
+    --primary: 231 15% 18%;
+    --popover: 230 9% 26%;
+    --background: 60 30% 96%;
+    --foreground: 231 15% 18%;
+    --destructive: 0 100% 67%;
   }
 }
 ```
 
 ### Convention
 
-We use a simple `background` and `foreground` convention for colors. The `background` variable is used for the background color of the component and the `foreground` variable is used for the text color.
+We use a simple `background` and `primary` convention for colors. The `background` variable is used for the background color of the body and the `primary` variable is used for text, border, etc. color of the component.
 
 <Callout className="mt-4">
 
-The `background` suffix is omitted when the variable is used for the background color of the component.
+The `background` suffix is omitted when the variable is used for the background color of the body.
 
 </Callout>
 
 Given the following CSS variables:
 
 ```css
---primary: 222.2 47.4% 11.2%;
---primary-foreground: 210 40% 98%;
+--primary: 167 71% 63%;
+--background: 226 19% 13%;
 ```
 
-The `background` color of the following component will be `hsl(var(--primary))` and the `foreground` color will be `hsl(var(--primary-foreground))`.
+The `primary` color of the following component will be `hsl(var(--primary))` and the `background` color will be `hsl(var(--primary-background))`.
 
 ```tsx
-<div className="bg-primary text-primary-foreground">Hello</div>
+<div className="bg-background text-primary">Hello</div>
 ```
 
 <Callout>
@@ -88,65 +64,13 @@ The `background` color of the following component will be `hsl(var(--primary))` 
 
 Here's the list of variables available for customization:
 
-<Steps>
-
-```css title="Default background color of <body />...etc"
---background: 0 0% 100%;
---foreground: 222.2 47.4% 11.2%;
+```css
+--primary: 167 71% 63%; /* Text and Border color */
+--popover: 194 25% 17%; /* Background color for components (Primary color with 10% opacity) */
+--background: 226 19% 13%; /* Background color for body */
+--foreground: 209 74% 94%; /* Text color for Destructive background */
+--destructive: 329 53% 61%; /* Background color for Destructive components */
 ```
-
-```css title="Muted backgrounds such as <TabsList />, <Skeleton /> and <Switch />"
---muted: 210 40% 96.1%;
---muted-foreground: 215.4 16.3% 46.9%;
-```
-
-```css title="Background color for <Card />"
---card: 0 0% 100%;
---card-foreground: 222.2 47.4% 11.2%;
-```
-
-```css title="Background color for popovers such as <DropdownMenu />, <HoverCard />, <Popover />"
---popover: 0 0% 100%;
---popover-foreground: 222.2 47.4% 11.2%;
-```
-
-```css title="Default border color"
---border: 214.3 31.8% 91.4%;
-```
-
-```css title="Border color for inputs such as <Input />, <Select />, <Textarea />"
---input: 214.3 31.8% 91.4%;
-```
-
-```css title="Primary colors for <Button />"
---primary: 222.2 47.4% 11.2%;
---primary-foreground: 210 40% 98%;
-```
-
-```css title="Secondary colors for <Button />"
---secondary: 210 40% 96.1%;
---secondary-foreground: 222.2 47.4% 11.2%;
-```
-
-```css title="Used for accents such as hover effects on <DropdownMenuItem>, <SelectItem>...etc"
---accent: 210 40% 96.1%;
---accent-foreground: 222.2 47.4% 11.2%;
-```
-
-```css title="Used for destructive actions such as <Button variant="destructive">"
---destructive: 0 100% 50%;
---destructive-foreground: 210 40% 98%;
-```
-
-```css title="Used for focus ring"
---ring: 215 20.2% 65.1%;
-```
-
-```css title="Border radius for card, input and buttons"
---radius: 0.5rem;
-```
-
-</Steps>
 
 ### Adding new colors
 
@@ -156,11 +80,6 @@ To add new colors, you need to add them to your CSS file and to your `tailwind.c
 :root {
   --warning: 38 92% 50%;
   --warning-foreground: 48 96% 89%;
-}
-
-.dark {
-  --warning: 48 96% 89%;
-  --warning-foreground: 38 92% 50%;
 }
 ```
 

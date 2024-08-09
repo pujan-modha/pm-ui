@@ -3,7 +3,7 @@ export const siteConfig = {
   url: "https://ui.pujan.pm",
   ogImage: "https://ui.pujan.pm/og.jpg",
   description:
-    "Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
+    "Beautifully themed components for your next React project. Built with Tailwind CSS.",
   links: {
     twitter: "https://twitter.com/pujan-modha",
     github: "https://github.com/pujan-modha/pm-ui",
@@ -11,3 +11,4 @@ export const siteConfig = {
 }
 
 export type SiteConfig = typeof siteConfig
+  

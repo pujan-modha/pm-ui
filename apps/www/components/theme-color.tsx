@@ -14,9 +14,7 @@ export const useThemeColor = create<ThemeColorStore>((set) => ({
     if (typeof window !== "undefined") {
       localStorage.setItem("themeColor", color)
       document.documentElement.classList.forEach((cls) => {
-        if (
-          cls.startsWith("theme-")
-        ) {
+        if (cls.startsWith("theme-")) {
           document.documentElement.classList.remove(cls)
         }
       })
@@ -29,8 +27,7 @@ export const useThemeColor = create<ThemeColorStore>((set) => ({
 // Sync store with applied theme on mount
 if (typeof window !== "undefined") {
   const appliedTheme = Array.from(document.documentElement.classList).find(
-    (cls) =>
-      cls.startsWith("theme-")
+    (cls) => cls.startsWith("theme-")
   )
   if (appliedTheme) {
     useThemeColor.getState().setThemeColor(appliedTheme)

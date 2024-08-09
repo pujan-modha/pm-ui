@@ -27,30 +27,6 @@ export function ColorFormatSelector({
   if (isLoading) {
     return <ColorFormatSelectorSkeleton />
   }
-
-  return (
-    <Select value={format} onValueChange={setFormat}>
-      <SelectTrigger
-        className={cn("h-7 w-auto gap-1.5 rounded-lg pr-2 text-xs", className)}
-        {...props}
-      >
-        <span className="font-medium">Format: </span>
-        <span className="font-mono text-xs text-primary">{format}</span>
-      </SelectTrigger>
-      <SelectContent align="end" className="rounded-xl">
-        {Object.entries(formats).map(([format, value]) => (
-          <SelectItem
-            key={format}
-            value={format}
-            className="gap-2 rounded-lg [&>span]:flex [&>span]:items-center [&>span]:gap-2"
-          >
-            <span className="font-medium">{format}</span>
-            <span className="font-mono text-xs">{value}</span>
-          </SelectItem>
-        ))}
-      </SelectContent>
-    </Select>
-  )
 }
 
 export function ColorFormatSelectorSkeleton({
