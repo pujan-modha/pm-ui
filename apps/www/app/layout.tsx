@@ -1,19 +1,16 @@
-import "@/styles/globals.css";
-import { Metadata, Viewport } from "next";
-import Script from "next/script";
-import { Analytics } from "@vercel/analytics/react";
+import "@/styles/globals.css"
+import { Metadata, Viewport } from "next"
+import Script from "next/script"
+import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import { siteConfig } from "@/config/site";
-import { fontMono, fontSans } from "@/lib/fonts";
-import { cn } from "@/lib/utils";
-import { themeScript } from "@/hooks/theme-script";
-import { Toaster as Sonner } from "@/registry/default/ui/sonner";
-import { Toaster as DefaultToaster } from "@/registry/default/ui/toaster";
-import { useThemeColor } from "@/components/theme-color";
 
-
-
-
+import { siteConfig } from "@/config/site"
+import { fontMono, fontSans } from "@/lib/fonts"
+import { cn } from "@/lib/utils"
+import { themeScript } from "@/hooks/theme-script"
+import { Toaster as Sonner } from "@/registry/default/ui/sonner"
+import { Toaster as DefaultToaster } from "@/registry/default/ui/toaster"
+import { useThemeColor } from "@/components/theme-color"
 
 export const metadata: Metadata = {
   title: {
@@ -114,8 +111,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
           </div>
           <DefaultToaster />
           <Sonner />
-          <Analytics/>
-          <SpeedInsights/>
+          <Analytics />
+          <SpeedInsights />
         </body>
       </html>
     </>
