@@ -22,7 +22,7 @@ const ThemeColorSwitcher = () => {
     <div className="flex flex-wrap gap-2">
       <Popover>
         <PopoverTrigger asChild>
-          <Button size="icon" variant="ghost" className="h-8 w-8">
+          <Button size="icon" variant="ghost" className="h-8 w-8" aria-label="Change theme color">
             <PaletteIcon size={16} />
           </Button>
         </PopoverTrigger>
