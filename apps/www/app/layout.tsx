@@ -1,14 +1,19 @@
-import "@/styles/globals.css"
-import { Metadata, Viewport } from "next"
-import Script from "next/script"
+import "@/styles/globals.css";
+import { Metadata, Viewport } from "next";
+import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { siteConfig } from "@/config/site";
+import { fontMono, fontSans } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
+import { themeScript } from "@/hooks/theme-script";
+import { Toaster as Sonner } from "@/registry/default/ui/sonner";
+import { Toaster as DefaultToaster } from "@/registry/default/ui/toaster";
+import { useThemeColor } from "@/components/theme-color";
 
-import { siteConfig } from "@/config/site"
-import { fontMono, fontSans } from "@/lib/fonts"
-import { cn } from "@/lib/utils"
-import { themeScript } from "@/hooks/theme-script"
-import { Toaster as Sonner } from "@/registry/default/ui/sonner"
-import { Toaster as DefaultToaster } from "@/registry/default/ui/toaster"
-import { useThemeColor } from "@/components/theme-color"
+
+
+
 
 export const metadata: Metadata = {
   title: {
@@ -96,19 +101,21 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </head>
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased",
+            "bg-background min-h-screen font-sans antialiased",
             fontSans.variable,
             fontMono.variable,
             themeColor
           )}
         >
           <div vaul-drawer-wrapper="">
-            <div className="relative flex min-h-screen flex-col bg-background">
+            <div className="bg-background relative flex min-h-screen flex-col">
               {children}
             </div>
           </div>
           <DefaultToaster />
           <Sonner />
+          <Analytics/>
+          <SpeedInsights/>
         </body>
       </html>
     </>
